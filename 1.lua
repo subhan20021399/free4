@@ -14,10 +14,10 @@ local function Valid(obj) if not obj then return false end if _slua and
 _slua.isValid then local ok, v = pcall(_slua.isValid, obj) if not ok or not v
 then return false end end return true end
 
--- ========================================== 
+-- ==========================================
 -- VIP WELCOME MENU WITH SCAM ALERT (FIXED)
--- ========================================== 
-local function ShowLexusVIPMenu() 
+-- ==========================================
+local function ShowLexusVIPMenu()
     if _G.SUBHAN_BOYState.LexusMenuAlreadyShown then return end
     if _G.SUBHAN_BOYState.LexusMenuStep ~= 0 then return end
 
@@ -26,61 +26,61 @@ local function ShowLexusVIPMenu()
         if not Msg or not Msg.Show then return end
 
         local function Step_ImportantNotice()
-            Msg.Show(1, "IMPORTANT NOTICE", 
-            "This file includes one bypass only. Please do not apply the file again.\n\nIf the bypass is activated on another device, the bypass will be deactivated, and the team will not be responsible for any issues caused by this.\n\nBE CAREFUL - DON'T GET SCAMMED!", 
-            function() 
+            Msg.Show(1, "IMPORTANT NOTICE",
+            "This file includes one bypass only. Please do not apply the file again.\n\nIf the bypass is activated on another device, the bypass will be deactivated, and the team will not be responsible for any issues caused by this.\n\nBE CAREFUL - DON'T GET SCAMMED!",
+            function()
                 Step_ScamAlert()
-            end, 
-            function() 
+            end,
+            function()
                 Step_ScamAlert()
-            end, 
-            "CONTINUE", 
+            end,
+            "CONTINUE",
             "CONTINUE")
         end
 
         local function Step_ScamAlert()
-            Msg.Show(1, " SCAM MOD WARNING", 
-            "Join my Telegram to avoid scammers selling free mods!\n\nTELEGRAM: @DR_SUBHAN\n\n ONLY HAVE 1 TELEGRAM ACCOUNT\n ONLY HAVE 1 ZALO ACCOUNT\n\nBE CAREFUL - DON'T GET SCAMMED!", 
-            function() 
+            Msg.Show(1, " SCAM MOD WARNING",
+            "Join my Telegram to avoid scammers selling free mods!\n\nTELEGRAM: @DR_SUBHAN\n\n ONLY HAVE 1 TELEGRAM ACCOUNT\n ONLY HAVE 1 ZALO ACCOUNT\n\nBE CAREFUL - DON'T GET SCAMMED!",
+            function()
                 local Web = require("client.slua.logic.url.logic_webview_sdk")
-                if Web and Web.OpenURL then 
-                    Web:OpenURL("https://t.me/DR_SUBHAN") 
-                end 
+                if Web and Web.OpenURL then
+                    Web:OpenURL("https://t.me/DR_SUBHAN")
+                end
                 _G.SUBHAN_BOYState.LexusMenuStep = 99
                 _G.SUBHAN_BOYState.LexusMenuAlreadyShown = true
-            end, 
-            function() 
+            end,
+            function()
                 _G.SUBHAN_BOYState.LexusMenuStep = 99
                 _G.SUBHAN_BOYState.LexusMenuAlreadyShown = true
-            end, 
-            "JOIN", 
+            end,
+            "JOIN",
             "CLOSED")
         end
 
         local function Step_Welcome()
-            Msg.Show(1, "WELCOME TO @DR_SUBHAN VIP MOD", 
-            "VIP MENU ADDED TO GAME SETTINGS!\n\nOpen Settings (Gear icon) → VIP MOD MENU\n\nENABLE FEW FEATURES TO AVOID LAG\nAIM CAREFULLY - DON'T BE OBVIOUS\n\nSubscribe: @DR_SUBHAN", 
-            function() 
+            Msg.Show(1, "WELCOME TO @DR_SUBHAN VIP MOD",
+            "VIP MENU ADDED TO GAME SETTINGS!\n\nOpen Settings (Gear icon) → VIP MOD MENU\n\nENABLE FEW FEATURES TO AVOID LAG\nAIM CAREFULLY - DON'T BE OBVIOUS\n\nSubscribe: @DR_SUBHAN",
+            function()
                 _G.InitModMenuTab()
                 Notify("VIP MENU ADDED! Open Settings → VIP MOD MENU")
                 Step_ImportantNotice()
-            end, 
-            function() 
+            end,
+            function()
                 _G.InitModMenuTab()
                 Notify("VIP MENU ADDED! Open Settings → VIP MOD MENU")
                 Step_ImportantNotice()
-            end, 
-            "OPEN MENU", 
+            end,
+            "OPEN MENU",
             "SKIP")
         end
 
-        Step_Welcome() 
+        Step_Welcome()
     end)
 end
 
--- ========================================== 
+-- ==========================================
 -- STATIC VARIABLES & GLOBAL CACHE OPTIMIZED (LAG-FREE)
--- ========================================== 
+-- ==========================================
 local C_GREEN = {R=0, G=255, B=0, A=255}
 local C_RED = {R=255, G=0, B=0, A=255}
 local C_CYAN = {R=0, G=255, B=255, A=255}
@@ -107,43 +107,43 @@ local SKELETON_CONNECTIONS = {
     {"pelvis", "thigh_r", C_CYAN}, {"thigh_r", "calf_r", C_CYAN}, {"calf_r", "foot_r", C_CYAN}
 }
 
--- ========================================== 
--- SUBHAN_BOY CORE + FULL FEATURES VIP CONFIGURATION 
--- ========================================== 
-_G.SUBHAN_BOYConfig = _G.SUBHAN_BOYConfig or { 
+-- ==========================================
+-- SUBHAN_BOY CORE + FULL FEATURES VIP CONFIGURATION
+-- ==========================================
+_G.SUBHAN_BOYConfig = _G.SUBHAN_BOYConfig or {
     CustomMagicBullet = false,
-    AutoHead = false, 
-    EspVip = false, 
-    EspDistance = false, 
-    EspVipPro = false, 
-    EspRadar = false, 
-    Esp5 = false, 
-    Esp6 = false, 
+    AutoHead = false,
+    EspVip = false,
+    EspDistance = false,
+    EspVipPro = false,
+    EspRadar = false,
+    Esp5 = false,
+    Esp6 = false,
     Esp7 = false,
     Esp8 = false,
-    EspAntenna = false, 
+    EspAntenna = false,
     EspName = false,
     EspStatus = false,
-    EspOutline = false, 
-    OutlineThickness = 5, 
-    UnlockFPS = false, 
-    IpadView = false, 
-    CustomAimbot = false, 
-    CustomAimbotClose = false, 
-    CustomHRecoil = false,  
-    CustomVRecoil = false,  
-    LessShake = false, 
-    RemoveGrass = false, 
-    RemoveFog = false, 
-    WhiteBody = false, 
-    ColorBodyV2 = false,    
-    wallhackng = false, 
-    Crosshair = false, 
-    CrosshairSize = 1.0,   -- <-- NEW
+    EspOutline = false,
+    OutlineThickness = 5,
+    UnlockFPS = false,
+    IpadView = false,
+    CustomAimbot = false,
+    CustomAimbotClose = false,
+    CustomHRecoil = false,
+    CustomVRecoil = false,
+    LessShake = false,
+    RemoveGrass = false,
+    RemoveFog = false,
+    WhiteBody = false,
+    ColorBodyV2 = false,
+    wallhackng = false,
+    Crosshair = false,
+    CrosshairSize = 1.0,
     Accuracy = false,
-    GodMode = false, 
+    GodMode = false,
     BlackSky = false,
-    
+
     -- New Configuration for Aimbot V2 (Aim Touch)
     AimTouchEnable = false,
     AimTouchHipIgKnock = false,
@@ -169,17 +169,17 @@ _G.SUBHAN_BOYConfig = _G.SUBHAN_BOYConfig or {
 }
 
 -- CONTAINS FULLY OPTIMIZED SYSTEM STATE WITH FREE RAM
-_G.SUBHAN_BOYState = _G.SUBHAN_BOYState or { 
-    LoopToken = 0, 
+_G.SUBHAN_BOYState = _G.SUBHAN_BOYState or {
+    LoopToken = 0,
     AimbotLoopToken = 0,
     NativeESPReady = false,
-    GraphicsUnlocked = false, 
-    MenuStep = 0, 
+    GraphicsUnlocked = false,
+    MenuStep = 0,
     LastCmdTime = 0,
     TrackedMarks = {},
     EnemyMarks = {},
-    LastAimbotCheckTime = 0, 
-    CustomTextData = nil,     
+    LastAimbotCheckTime = 0,
+    CustomTextData = nil,
     LastAimbotConfigString = "",
     MagicUpdateVersion = 1,
     LastMagicConfigHash = "",
@@ -202,15 +202,15 @@ pcall(function()
         "ShadowTrackerExtra/Saved/SaveGames/" .. fileName,
         "../../ShadowTrackerExtra/Saved/SaveGames/" .. fileName,
     }
-    
+
     local tm = package.loaded["client.logic.common.TimeManager"]
-    if not tm then 
+    if not tm then
         local s, r = pcall(require, "client.logic.common.TimeManager")
         if s and r then tm = r end
     end
     if tm and type(tm.GetServerTime) == "function" then
         local serverTime = tm.GetServerTime()
-        if serverTime and serverTime > 1700000000 then 
+        if serverTime and serverTime > 1700000000 then
             currentTime = serverTime
         end
     end
@@ -585,9 +585,9 @@ _G.StartBypass_VIP_v3 = function()
     end)
 end
 
--- ========================================== 
+-- ==========================================
 -- MAP MARK CLEANUP MANAGEMENT FUNCTION (ANTI-LAG/FAKE DISPLAY WHEN ENEMY DIES)
--- ========================================== 
+-- ==========================================
 local function SafeAddMark(id, pos, z, str, size, actor)
     local mark = nil
     pcall(function()
@@ -614,7 +614,7 @@ local function SafeRemoveMark(mark)
     _G.SUBHAN_BOYState.TrackedMarks[mark] = nil
 end
 
--- ========================================== 
+-- ==========================================
 -- CREATE A UNIQUE AND PERMANENT ID FOR EACH ENEMY (FIXED LAG ISSUES WHEN SLUA CREATES NEW WRAPPERS)
 -- ==========================================
 local function GetSafeEnemyKey(enemy)
@@ -625,25 +625,25 @@ local function GetSafeEnemyKey(enemy)
     return tostring(enemy)
 end
 
--- ========================================== 
+-- ==========================================
 -- AI (BOT) / REAL PLAYER - OPTIMIZED TEST
 -- ==========================================
 local function CheckIsAI(pawn, markData)
     if markData.AK_IS_BOT ~= nil then return markData.AK_IS_BOT, true end
-    
+
     local isAI = false
     local hasChecked = false
     pcall(function()
         if pawn.bIsAI == true or pawn.IsAI == true then isAI = true; hasChecked = true end
         if type(pawn.IsBot) == "function" and pawn:IsBot() then isAI = true; hasChecked = true end
-        
+
         local pState = pawn.PlayerState or (type(pawn.GetPlayerState) == "function" and pawn:GetPlayerState())
         if Valid(pState) then
             hasChecked = true
             if pState.bIsABot == true or pState.bIsBot == true then isAI = true end
             if type(pState.IsBot) == "function" and pState:IsBot() then isAI = true end
         end
-        
+
         if not isAI then
             local name = pawn.PlayerName or (type(pawn.GetPlayerName) == "function" and pawn:GetPlayerName()) or ""
             if name ~= "" and (name:find("Cobra") or name:find("Target") or name:find("bot_") or name:find("b_")) then
@@ -656,7 +656,7 @@ local function CheckIsAI(pawn, markData)
     return isAI, hasChecked
 end
 
--- ========================================== 
+-- ==========================================
 -- INITIALIZES AUTO HEAD HOOKS FOR DAMAGE
 -- ==========================================
 function _G.InitializeAutoHeadHooks()
@@ -668,7 +668,7 @@ function _G.InitializeAutoHeadHooks()
             "GameLua.Mod.BaseMod.Common.Weapon.ShootWeaponEntity",
             "GameLua.Logic.Weapon.ShootWeaponEntity"
         }
-        
+
         for _, path in ipairs(modulesToHook) do
             local hitLogic = package.loaded[path]
             if hitLogic then
@@ -688,7 +688,7 @@ function _G.InitializeAutoHeadHooks()
     end)
 end
 
--- ========================================== 
+-- ==========================================
 -- COLOR CONFIGURATION FOR ESP HEALTH, ESP NAME, AND WALLHACK
 -- ==========================================
 if _G.ColorConfig == nil then
@@ -721,9 +721,9 @@ local function GetAppliedColor(colorIdx, brightness)
     }
 end
 
--- ========================================== 
+-- ==========================================
 -- AUTOMATIC VIP MENU STORAGE AND LOADING SYSTEM
--- ========================================== 
+-- ==========================================
 local function GetConfigPaths(fileName)
     local paths = {
         "//storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Paks/" .. fileName,
@@ -755,7 +755,7 @@ _G.SaveModSettings = function()
             data = data .. "  [\"" .. tostring(k) .. "\"] = " .. tostring(v) .. ",\n"
         end
         data = data .. "}\n}"
-        
+
         if data == _G.LastConfigSaveStr then return end
         _G.LastConfigSaveStr = data
 
@@ -808,15 +808,15 @@ _G.LoadModSettings = function()
                 end
             end
         end
-        _G.SaveModSettings() 
+        _G.SaveModSettings()
     end)
 end
 
 local function AutoSaveLoop()
     pcall(function() if _G.SaveModSettings then _G.SaveModSettings() end end)
     pcall(function()
-        local okTicker, ticker = pcall(require, "common.time_ticker") 
-        if okTicker and ticker and ticker.AddTimerOnce then 
+        local okTicker, ticker = pcall(require, "common.time_ticker")
+        if okTicker and ticker and ticker.AddTimerOnce then
             ticker.AddTimerOnce(3.0, AutoSaveLoop)
         end
     end)
@@ -832,7 +832,7 @@ _G.ReadLiveConfig = function()
     if _G.SaveModSettings then _G.SaveModSettings() end
 end
 
--- ========================================== 
+-- ==========================================
 -- SKIN MOD SYSTEM (FULLY REMOVED - ALL SKIN FUNCTIONS ARE STUBS)
 -- ==========================================
 _G.VIP_Attachments = {}
@@ -867,9 +867,9 @@ local CACHED_UI_Manager = nil
 _G.NeedCheckDeadBoxTimer = 0
 _G.LastCheckDeadBoxTime = 0
 
--- ========================================== 
+-- ==========================================
 -- VIP NATIVE MENU SYSTEM (RUNS DIRECTLY FROM GAME SETTINGS)
--- ========================================== 
+-- ==========================================
 
 function _G.InitModMenuTab()
     if _G.ModMenuInitialized then return end
@@ -891,7 +891,7 @@ function _G.InitModMenuTab()
     if not LocUtil and package.loaded["client.common.LocUtil"] then
         LocUtil = require("client.common.LocUtil")
     end
-    
+
     if LocUtil and not LocUtil._IsModMenuHooked then
         local old_get = LocUtil.GetLocalizeResStr
         LocUtil.GetLocalizeResStr = function(id)
@@ -905,10 +905,10 @@ function _G.InitModMenuTab()
 
     local SettingPageDefine = require("client.logic.NewSetting.SettingPageDefine")
     local SettingCatalog = require("client.logic.NewSetting.SettingCatalog")
-    
+
     if not SettingPageDefine.ModMenu then
         local AliasMap = require("client.slua.umg.NewSetting.Item.AliasMap")
-        
+
         local StackESPVisual = {
             { Key = "ModMenu_ESP1", UI = AliasMap.Switcher, Text = "ESP (AUTO SETUP)", GetFunc = function() return _G.SUBHAN_BOYConfig.EspVip end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.EspVip = v return true end },
             { Key = "ModMenu_ESP7", UI = AliasMap.Switcher, Text = "ESP WARNING & COUNT", GetFunc = function() return _G.SUBHAN_BOYConfig.Esp7 end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.Esp7 = v return true end },
@@ -925,7 +925,7 @@ function _G.InitModMenuTab()
 
         local StackAimbotForce = {
             { Key = "ModMenu_AT_Ex", UI = AliasMap.TitleSwitcher, Text = "▶ UR/SCRIM PLAYER - TOUCH AIM", ExpandIndex = 0, GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchEnable end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchEnable = v return true end },
-            
+
             { Key = "ModMenu_AT_Hip_Ex", UI = AliasMap.TitleSwitcher, Text = "   ▶ Hipfire Aimbot", ExpandHandle = "ModMenu_AT_Ex", ExpandIndex = 0, GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchHipfire end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchHipfire = v return true end },
             { Key = "ModMenu_AT_Hip_IgKnock", UI = AliasMap.Switcher, Text = "      Ignore Knocked Enemies", ExpandHandle = "ModMenu_AT_Hip_Ex", GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchHipIgKnock end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchHipIgKnock = v return true end },
             { Key = "ModMenu_AT_Hip_IgBot", UI = AliasMap.Switcher, Text = "      Ignore Bots", ExpandHandle = "ModMenu_AT_Hip_Ex", GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchHipIgBot end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchHipIgBot = v return true end },
@@ -936,7 +936,7 @@ function _G.InitModMenuTab()
             { Key = "ModMenu_AT_Hip_Spd", UI = AliasMap.Slider, Text = "      Aim / Speed Smooth (1-62% perfect)", ExpandHandle = "ModMenu_AT_Hip_Ex", MinValue = 1, MaxValue = 100, min = 1, max = 100, GetFunc = function() return _G.SUBHAN_BOYState.CustomTextData.AimTouchHipSpeed or 50 end, SetFunc = function(c,v) _G.SUBHAN_BOYState.CustomTextData.AimTouchHipSpeed = v return true end },
             { Key = "ModMenu_AT_Hip_FOV", UI = AliasMap.Slider, Text = "      FOV Range (1-30% perfect)", ExpandHandle = "ModMenu_AT_Hip_Ex", MinValue = 1, MaxValue = 100, min = 1, max = 100, GetFunc = function() return _G.SUBHAN_BOYState.CustomTextData.AimTouchHipFOV or 30 end, SetFunc = function(c,v) _G.SUBHAN_BOYState.CustomTextData.AimTouchHipFOV = v return true end },
             { Key = "ModMenu_AT_Hip_Dist", UI = AliasMap.Slider, Text = "      Distance (1-40% safe)", ExpandHandle = "ModMenu_AT_Hip_Ex", MinValue = 1, MaxValue = 100, min = 1, max = 100, GetFunc = function() return math.floor((_G.SUBHAN_BOYState.CustomTextData.AimTouchHipDist or 250) / 5) end, SetFunc = function(c,v) _G.SUBHAN_BOYState.CustomTextData.AimTouchHipDist = v * 5 return true end },
-            
+
             { Key = "ModMenu_AT_ScopeAll_Ex", UI = AliasMap.TitleSwitcher, Text = "   ▶ Scoped Aimbot (All Weapons)", ExpandHandle = "ModMenu_AT_Ex", ExpandIndex = 0, GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchScopeAll end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchScopeAll = v return true end },
             { Key = "ModMenu_AT_ScopeAll_IgKnock", UI = AliasMap.Switcher, Text = "      Ignore Knocked Enemies", ExpandHandle = "ModMenu_AT_ScopeAll_Ex", GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchScopeIgKnock end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchScopeIgKnock = v return true end },
             { Key = "ModMenu_AT_ScopeAll_IgBot", UI = AliasMap.Switcher, Text = "      Ignore Bots", ExpandHandle = "ModMenu_AT_ScopeAll_Ex", GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchScopeIgBot end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchScopeIgBot = v return true end },
@@ -961,7 +961,7 @@ function _G.InitModMenuTab()
             { Key = "ModMenu_AT_SG_Spd", UI = AliasMap.Slider, Text = "      Smoothing / Speed (1-100)", ExpandHandle = "ModMenu_AT_SG_Ex", MinValue = 1, MaxValue = 100, min = 1, max = 100, GetFunc = function() return _G.SUBHAN_BOYState.CustomTextData.AimTouchSGSpeed or 80 end, SetFunc = function(c,v) _G.SUBHAN_BOYState.CustomTextData.AimTouchSGSpeed = v return true end },
             { Key = "ModMenu_AT_SG_FOV", UI = AliasMap.Slider, Text = "      FOV Range (1-100)", ExpandHandle = "ModMenu_AT_SG_Ex", MinValue = 1, MaxValue = 100, min = 1, max = 100, GetFunc = function() return _G.SUBHAN_BOYState.CustomTextData.AimTouchSGFOV or 40 end, SetFunc = function(c,v) _G.SUBHAN_BOYState.CustomTextData.AimTouchSGFOV = v return true end },
             { Key = "ModMenu_AT_SG_Dist", UI = AliasMap.Slider, Text = "      Distance (1-100m)", ExpandHandle = "ModMenu_AT_SG_Ex", MinValue = 1, MaxValue = 100, min = 1, max = 100, GetFunc = function() return _G.SUBHAN_BOYState.CustomTextData.AimTouchSGDist or 30 end, SetFunc = function(c,v) _G.SUBHAN_BOYState.CustomTextData.AimTouchSGDist = v return true end },
-            
+
             { Key = "ModMenu_AT_Sniper_Ex", UI = AliasMap.TitleSwitcher, Text = "   ▶ Scoped Aimbot (Sniper Rifles)", ExpandHandle = "ModMenu_AT_Ex", ExpandIndex = 0, GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchScopeSniper end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchScopeSniper = v return true end },
             { Key = "ModMenu_AT_Sniper_IgKnock", UI = AliasMap.Switcher, Text = "      Ignore Knocked Enemies", ExpandHandle = "ModMenu_AT_Sniper_Ex", GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchSniperIgKnock end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchSniperIgKnock = v return true end },
             { Key = "ModMenu_AT_Sniper_IgBot", UI = AliasMap.Switcher, Text = "      Ignore Bots", ExpandHandle = "ModMenu_AT_Sniper_Ex", GetFunc = function() return _G.SUBHAN_BOYConfig.AimTouchSniperIgBot end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.AimTouchSniperIgBot = v return true end },
@@ -1014,16 +1014,16 @@ function _G.InitModMenuTab()
         SettingPageDefine.ModMenu = {
             Key = "ModMenu",
             Text= "  ",
-            UIKey = "Setting_Page_Privacy", 
+            UIKey = "Setting_Page_Privacy",
             Category = {
-                { Key = "Cat_Aimbot_Force", Text= "AIMBOT MENU", Stack = StackAimbotForce },
-                { Key = "Cat_ESP_Visual", Text= "ESP MENU", Stack = StackESPVisual },
-                { Key = "Cat_Magic_Bullet", Text= "MAGIC MENU", Stack = StackMagicBullet }
+                { Key = "Cat_Aimbot_Force", Text= "AIMBOT MENU", Stack = StackAimbotForce }
+                --{ Key = "Cat_ESP_Visual", Text= "ESP MENU", Stack = StackESPVisual },
+                --{ Key = "Cat_Magic_Bullet", Text= "MAGIC MENU", Stack = StackMagicBullet }
                 --{ Key = "Cat_Combat_Graphic", Text= "WALLHACK/FPS", Stack = StackCombatGraphic },
                 --{ Key = "Cat_ColorMod", Text= "COLOR CUSTOM", Stack = StackColorMod }
             }
         }
-        
+
         table.insert(SettingCatalog, SettingPageDefine.ModMenu)
     end
 
@@ -1032,8 +1032,8 @@ function _G.InitModMenuTab()
         local old_ShowUI = UIManager.ShowUI
         UIManager.ShowUI = function(config, ...)
             local args = {...}
-            local n = select('#', ...) 
-            
+            local n = select('#', ...)
+
             if config and config.keyName and (string.find(string.lower(config.keyName), "setting_main") or string.find(string.lower(config.keyName), "setting")) then
                 local catalog = args[1]
                 if type(catalog) == "table" then
@@ -1056,7 +1056,7 @@ function _G.InitModMenuTab()
     end
 end
 
-local function ShowSUBHAN_BOYVIPMenu() 
+local function ShowSUBHAN_BOYVIPMenu()
     if _G.SUBHAN_BOYMenuAlreadyShown then return end
     if _G.SUBHAN_BOYState.MenuStep ~= 0 then return end
 
@@ -1065,10 +1065,10 @@ local function ShowSUBHAN_BOYVIPMenu()
     _G.SUBHAN_BOYMenuAlreadyShown = true
 end
 
--- ========================================== 
--- LOGIC 165 FPS IPAD VIEW 
--- ========================================== 
-local function InitializeGraphicsUnlock() 
+-- ==========================================
+-- LOGIC 165 FPS IPAD VIEW
+-- ==========================================
+local function InitializeGraphicsUnlock()
     if isExpired then return end
     if _G.SUBHAN_BOYState.GraphicsUnlocked or currentTime > limitTime then return end
 
@@ -1089,7 +1089,7 @@ local function InitializeGraphicsUnlock()
         local GSC_FPS = require("client.slua.umg.NewSetting.GraphicsNew.Comps.GSC_FPS")
         local GSC_FPSFT = require("client.slua.umg.NewSetting.GraphicsNew.Comps.GSC_FPSFT")
         local GraphicSettingDB = require("client.slua.umg.NewSetting.GraphicsNew.GraphicSettingDB")
-        
+
         local KismetMathLibrary = import("KismetMathLibrary") or _G.KismetMathLibrary
         local FLinearColor = import("LinearColor") or _G.FLinearColor
 
@@ -1097,7 +1097,7 @@ local function InitializeGraphicsUnlock()
             local old_SetFPS = logic_setting_graphics.SetFPS
             function logic_setting_graphics.SetFPS(gameInstance, FPSLevel)
                 if old_SetFPS then old_SetFPS(gameInstance, FPSLevel) end
-                if FPSLevel == 8 then 
+                if FPSLevel == 8 then
                     gameInstance:ExecuteCMD("t.MaxFPS", "165")
                     gameInstance:ExecuteCMD("r.FrameRateLimit", "165")
                 end
@@ -1119,11 +1119,11 @@ local function InitializeGraphicsUnlock()
                     local name = "NodeFps" .. (({[2]=20,[3]=25,[4]=30,[5]=40,[6]=60,[7]=90,[8]=120})[level] or 120)
                     local widget = self.UIRoot[name]
                     if slua.isValid(widget) then
-                        widget:SetIsEnabled(true) 
+                        widget:SetIsEnabled(true)
                         pcall(function() widget:SetRenderOpacity(1.0) end)
                         local switcher = self.UIRoot["WidgetSwitcher_" .. level]
-                        if slua.isValid(switcher) then 
-                            switcher:SetActiveWidgetIndex(level == selectedLevel and 0 or 1) 
+                        if slua.isValid(switcher) then
+                            switcher:SetActiveWidgetIndex(level == selectedLevel and 0 or 1)
                         end
                     end
                 end
@@ -1143,7 +1143,7 @@ local function InitializeGraphicsUnlock()
                 if not FLinearColor then return nil end
                 return FLinearColor(lerp(start.R, finish.R, percent), lerp(start.G, finish.G, percent), lerp(start.B, finish.B, percent), lerp(start.A, finish.A, percent))
             end
-            
+
             ft_impl.ShowOrHide = function(self)
                 self:SelfHitTestInvisible()
                 if self.InitFPSFTSwitch then self:InitFPSFTSwitch() end
@@ -1176,11 +1176,11 @@ local function InitializeGraphicsUnlock()
                     end
                 end
                 local FPSFineTunePer = (FPSFineTuneNum - NMinFPS) / (165 - NMinFPS)
-                
+
                 itemRoot.Veihclescreen3:SetText(tostring(FPSFineTuneNum))
                 itemRoot.Slider_screen3:SetValue(FPSFineTunePer)
                 itemRoot.ProgressBar_screen3:SetPercent(FPSFineTunePer)
-                
+
                 if FLinearColor then
                     local startColor = FLinearColor(1.0, 1.0, 1.0, 1.0)
                     local midColor = FLinearColor(1.0, 0.54, 0.11, 1.0)
@@ -1207,7 +1207,7 @@ local function InitializeGraphicsUnlock()
                     self:OnFPSFTValueChange3(clamp(FPSFineTuneNum, NMinFPS, 165))
                 end
             end
-            
+
             ft_impl.OnFPSFTAdd = ft_impl.OnFPSFTAdd3
             ft_impl.OnFPSFTMinus = ft_impl.OnFPSFTMinus3
             ft_impl.OnFPSFTAdd2 = ft_impl.OnFPSFTAdd3
@@ -1220,67 +1220,67 @@ local function InitializeGraphicsUnlock()
     Notify("Graphics & FPS 165Hz Unlocked")
 end
 
--- ========================================== 
+-- ==========================================
 -- INITIALIZE THE ESP SYSTEM
--- ========================================== 
-local function InitializeNativeESP() 
+-- ==========================================
+local function InitializeNativeESP()
     if _G.SUBHAN_BOYState.NativeESPReady then return end
-    pcall(function() 
-        local GamePlayTools = require("GameLua.Mod.BaseMod.Common.GamePlayTools") 
-        local currentMarkCfg = GamePlayTools.GetCurrentConfig("ScreenMarkConfig") 
+    pcall(function()
+        local GamePlayTools = require("GameLua.Mod.BaseMod.Common.GamePlayTools")
+        local currentMarkCfg = GamePlayTools.GetCurrentConfig("ScreenMarkConfig")
         local function ApplyCfg(cfg)
-            if not cfg then return end 
-            if cfg[1006] then 
+            if not cfg then return end
+            if cfg[1006] then
                 cfg[1006].bBindBlocked = true;
-                cfg[1006].bBindOutScreen = true; 
+                cfg[1006].bBindOutScreen = true;
                 cfg[1006].MaxWidgetNum = 99
-                cfg[1006].MaxShowDistance = 6000000; 
+                cfg[1006].MaxShowDistance = 6000000;
                 cfg[1006].bScaleByDistance = false
-                cfg[1006].BindSocketName = "root"; 
+                cfg[1006].BindSocketName = "root";
                 cfg[1006].bUseLuaWorldSocketName = true
-                cfg[1006].WorldPositionOffset = FVector(0, 0, -30) 
-            end 
-            cfg[8888] = { 
+                cfg[1006].WorldPositionOffset = FVector(0, 0, -30)
+            end
+            cfg[8888] = {
                 UIPathName = "/Game/Mod/EvoBase/BluePrints/UIBP/QuickSign/QuickSign_TipHitEnemy_UIBP_New.QuickSign_TipHitEnemy_UIBP_New_C",
-                MaxWidgetNum = 99, 
-                MaxShowDistance = 6000000, 
+                MaxWidgetNum = 99,
+                MaxShowDistance = 6000000,
                 bBindOutScreen = true,
-                bBindBlocked = true, 
+                bBindBlocked = true,
                 bIsBindingActor = true,
                 BindSocketName = "head",
-                bUseLuaWorldSocketName = true, 
+                bUseLuaWorldSocketName = true,
                 WorldPositionOffset = FVector(0, 0, 30),
                 bNeedPreLoad = true,
-                Priority = 2 
-            } 
-            cfg[9999] = { 
+                Priority = 2
+            }
+            cfg[9999] = {
                 UIPathName = "/Game/Mod/EvoBase/BluePrints/UIBP/QuickSign/QuickSign_TipHitEnemy_UIBP_New.QuickSign_TipHitEnemy_UIBP_New_C",
-                MaxWidgetNum = 99, 
-                MaxShowDistance = 6000000, 
+                MaxWidgetNum = 99,
+                MaxShowDistance = 6000000,
                 bBindOutScreen = true,
-                bBindBlocked = true, 
-                bIsBindingActor = true, 
+                bBindBlocked = true,
+                bIsBindingActor = true,
                 BindSocketName = "head",
-                bUseLuaWorldSocketName = true, 
+                bUseLuaWorldSocketName = true,
                 WorldPositionOffset = FVector(0, 0, 50),
-                bNeedPreLoad = true, 
-                Priority = 2 
-            } 
-        end 
-        ApplyCfg(currentMarkCfg) 
-        for k, cfg in pairs(package.loaded) do 
-            if type(k) == "string" and string.find(k, "ScreenMarkConfig") and type(cfg) == "table" then 
-                ApplyCfg(cfg) 
-            end 
-        end 
+                bNeedPreLoad = true,
+                Priority = 2
+            }
+        end
+        ApplyCfg(currentMarkCfg)
+        for k, cfg in pairs(package.loaded) do
+            if type(k) == "string" and string.find(k, "ScreenMarkConfig") and type(cfg) == "table" then
+                ApplyCfg(cfg)
+            end
+        end
     end)
-    _G.SUBHAN_BOYState.NativeESPReady = true 
-    Notify("Native ESP System Initialized") 
+    _G.SUBHAN_BOYState.NativeESPReady = true
+    Notify("Native ESP System Initialized")
 end
 
--- ========================================== 
+-- ==========================================
 -- LOCAL FUNCTIONS FOR ESP
--- ========================================== 
+-- ==========================================
 local function GetAllSkeletalMeshes(enemy, markData)
     local curTime = os.clock()
     if markData and markData.CachedMeshes and markData.CachedMeshTime and (curTime - markData.CachedMeshTime) < 3.0 then
@@ -1316,7 +1316,7 @@ local function GetAllSkeletalMeshes(enemy, markData)
     return meshes
 end
 
--- ========================================== 
+-- ==========================================
 -- WALLHACK FUNCTIONS
 -- ==========================================
 local function Undowallhackng(enemy, markData)
@@ -1326,7 +1326,7 @@ local function Undowallhackng(enemy, markData)
             for _, mesh in ipairs(meshes) do
                 if Valid(mesh) then
                     pcall(function() if type(mesh.SetRenderCustomDepth) == "function" then mesh:SetRenderCustomDepth(false) end end)
-                    for i = 0, 10 do 
+                    for i = 0, 10 do
                         local matInterface = mesh:GetMaterial(i)
                         if Valid(matInterface) then
                             local baseMat = matInterface:GetBaseMaterial()
@@ -1344,22 +1344,22 @@ local function Applywallhackng(enemy, markData)
     pcall(function()
         local meshes = GetAllSkeletalMeshes(enemy, markData)
         for _, mesh in ipairs(meshes) do
-            if Valid(mesh) then 
+            if Valid(mesh) then
                 pcall(function()
                     if type(mesh.SetRenderCustomDepth) == "function" then
                         mesh:SetRenderCustomDepth(true)
                     end
                     if type(mesh.SetCustomDepthStencilValue) == "function" then
-                        mesh:SetCustomDepthStencilValue(252) 
+                        mesh:SetCustomDepthStencilValue(252)
                     end
                 end)
-                for i = 0, 10 do 
+                for i = 0, 10 do
                     local matInterface = mesh:GetMaterial(i)
                     if not Valid(matInterface) then break end
                     local baseMat = matInterface:GetBaseMaterial()
                     if Valid(baseMat) then
                         baseMat.bDisableDepthTest = true
-                        baseMat.BlendMode = 2 
+                        baseMat.BlendMode = 2
                     end
                 end
             end
@@ -1367,14 +1367,14 @@ local function Applywallhackng(enemy, markData)
     end)
 end
 
--- ========================================== 
+-- ==========================================
 -- WALLHACK WITH COLOR
 -- ==========================================
 local function ApplyColorBodyV2(enemy, pc, markData)
     pcall(function()
         local meshes = GetAllSkeletalMeshes(enemy, markData)
         if #meshes == 0 then return end
-        
+
         local curTime = os.clock()
         if markData.LastVisCheckTime == nil or (curTime - markData.LastVisCheckTime) > 0.3 then
             markData.LastVisCheckTime = curTime
@@ -1386,20 +1386,20 @@ local function ApplyColorBodyV2(enemy, pc, markData)
             end)
             markData.CachedHiddenState = isHidden
         end
-        
+
         local hidden = markData.CachedHiddenState
         if hidden == nil then hidden = true end
-        
+
         local visibleColor = GetAppliedColor(_G.ColorConfig.VisibleColor or 4, _G.ColorConfig.Brightness)
         local invisibleColor = GetAppliedColor(_G.ColorConfig.InvisibleColor or 1, _G.ColorConfig.Brightness)
         local finalColor = hidden and invisibleColor or visibleColor
-        
+
         local colorHash = string.format("%d_%d_%d_%d", finalColor.R, finalColor.G, finalColor.B, finalColor.A)
         local currentMeshCount = #meshes
         local isMeshChanged = (markData.LastMeshCount ~= currentMeshCount)
-        
+
         if not isMeshChanged and markData.LastHiddenState == hidden and markData.LastColorHash == colorHash then return end
-        
+
         if isMeshChanged and markData.MIDs then
             markData.MIDs = {}
         end
@@ -1408,7 +1408,7 @@ local function ApplyColorBodyV2(enemy, pc, markData)
         markData.LastMeshCount = currentMeshCount
         markData.LastColorHash = colorHash
         markData.ColorApplied = true
-        
+
         for meshIndex, mesh in ipairs(meshes) do
             if Valid(mesh) then
                 pcall(function()
@@ -1427,9 +1427,9 @@ local function ApplyColorBodyV2(enemy, pc, markData)
                         local matName = tostring(baseMat)
                         if string.find(matName, "Master_Mask", 1, true) then
                             if not markData.MIDs then markData.MIDs = {} end
-                            
+
                             local meshKey = "Mesh_" .. tostring(meshIndex)
-                            
+
                             if not markData.MIDs[meshKey] then markData.MIDs[meshKey] = {} end
                             local mid = markData.MIDs[meshKey][i]
                             if not Valid(mid) then
@@ -1498,30 +1498,54 @@ local function UndoColorBodyV2(enemy, markData)
     end)
 end
 
--- ========================================== 
--- AIMBOT V2 SYSTEM
--- ========================================== 
+-- ==========================================
+-- AIMBOT V2 SYSTEM (FULLY FIXED)
+-- ==========================================
 _G.GetEnemyTargetsFromActors = function(radius)
     local result = {}
-    local player = GameplayData.GetPlayerCharacter()
-
-    if not slua.isValid(player) then
-        return result
-    end
+    local player = nil
+    pcall(function() player = GameplayData.GetPlayerCharacter() end)
+    if not slua.isValid(player) then return result end
 
     local allCharacters = {}
-    if GameplayData.GetAllPlayerCharacters then
-        allCharacters = GameplayData.GetAllPlayerCharacters()
-    elseif GameplayData.GameCharacters then
-        for _, char in pairs(GameplayData.GameCharacters) do table.insert(allCharacters, char) end
+    -- [FIXED] Robust fallback for retrieving all characters
+    pcall(function()
+        if GameplayData.GetAllPlayerCharacters then
+            allCharacters = GameplayData.GetAllPlayerCharacters()
+        end
+    end)
+    if (not allCharacters or #allCharacters == 0) then
+        pcall(function()
+            if GameplayData.GameCharacters then
+                for _, char in pairs(GameplayData.GameCharacters) do
+                    table.insert(allCharacters, char)
+                end
+            end
+        end)
+    end
+    if (not allCharacters or #allCharacters == 0) then
+        pcall(function()
+            if GameplayData.AllPlayerCharacters then
+                for _, char in pairs(GameplayData.AllPlayerCharacters) do
+                    table.insert(allCharacters, char)
+                end
+            end
+        end)
     end
 
-    local myTeam = player:GetTeamID()
+    local myTeam = -1
+    pcall(function() myTeam = player:GetTeamID() end)
 
     for _, actor in pairs(allCharacters) do
-        if slua.isValid(actor) and actor ~= player and actor.GetTeamID and actor:IsAlive() then
-            if actor:GetTeamID() ~= myTeam then
-                local dist = player:GetDistanceTo(actor)
+        local valid = slua.isValid(actor) and actor ~= player
+        if valid then
+            local isAlive = true
+            pcall(function() isAlive = actor:IsAlive() end)
+            local aTeam = -1
+            pcall(function() aTeam = actor:GetTeamID() end)
+            if isAlive and aTeam ~= myTeam then
+                local dist = 999999
+                pcall(function() dist = player:GetDistanceTo(actor) end)
                 if dist <= radius then
                     table.insert(result, actor)
                 end
@@ -1531,47 +1555,112 @@ _G.GetEnemyTargetsFromActors = function(radius)
     return result
 end
 
+-- [FIXED] Safe helper: no goto, no extra args on GetBonePos, robust screen projection
+local function SafeGetBonePos(target, boneName)
+    local tPos = nil
+    pcall(function()
+        if type(target.GetBonePos) == "function" then
+            -- Most slua builds expect only the bone name
+            tPos = target:GetBonePos(boneName)
+        end
+    end)
+    if not tPos or (tPos.X == 0 and tPos.Y == 0 and tPos.Z == 0) then
+        pcall(function()
+            if type(target.GetSocketLocation) == "function" then
+                tPos = target:GetSocketLocation(boneName)
+            end
+        end)
+    end
+    if not tPos or (tPos.X == 0 and tPos.Y == 0 and tPos.Z == 0) then
+        pcall(function()
+            if type(target.K2_GetActorLocation) == "function" then
+                tPos = target:K2_GetActorLocation()
+            end
+        end)
+        if tPos then
+            if boneName == "head" then tPos.Z = tPos.Z + 70
+            elseif boneName == "spine_03" then tPos.Z = tPos.Z + 40
+            elseif boneName == "spine_01" then tPos.Z = tPos.Z + 20 end
+        end
+    end
+    return tPos
+end
+
+-- [FIXED] Robust world->screen: don't trust return value
+local function SafeWorldToScreen(pc, worldLoc, FVector2D)
+    local screen = FVector2D()
+    pcall(function()
+        pc:ProjectWorldLocationToScreen(worldLoc, screen, false)
+    end)
+    if not screen or screen.X == nil or screen.Y == nil then return nil end
+    return screen
+end
+
 _G.AimTouch = function()
     pcall(function()
         if not _G.SUBHAN_BOYConfig.AimTouchEnable then return end
-        
-        local player = GameplayData.GetPlayerCharacter()
+
+        local player = nil
+        pcall(function() player = GameplayData.GetPlayerCharacter() end)
         if not slua.isValid(player) then return end
-        
-        local pc = player:GetPlayerControllerSafety()
+
+        local pc = nil
+        pcall(function() pc = player:GetPlayerControllerSafety() end)
         if not slua.isValid(pc) then return end
-        
+
         local isFiring = player.bIsWeaponFiring
         local isADS = player.bIsGunADS
-        
-        local weapon = player.WeaponManagerComponent and player.WeaponManagerComponent.CurrentWeaponReplicated
-        if not weapon and type(player.GetCurrentShootWeapon) == "function" then
-            weapon = player:GetCurrentShootWeapon()
+
+        local weapon = nil
+        pcall(function()
+            if player.WeaponManagerComponent then
+                weapon = player.WeaponManagerComponent.CurrentWeaponReplicated
+            end
+        end)
+        if not weapon then
+            pcall(function()
+                if type(player.GetCurrentShootWeapon) == "function" then
+                    weapon = player:GetCurrentShootWeapon()
+                end
+            end)
         end
-        
+        if not weapon then
+            pcall(function()
+                if type(player.GetCurrentWeapon) == "function" then
+                    weapon = player:GetCurrentWeapon()
+                end
+            end)
+        end
+
         local isShotgun = false
         local isSniper = false
         local currentAmmo = 1
-        
+
         if slua.isValid(weapon) then
-            local wID = type(weapon.GetWeaponID) == "function" and weapon:GetWeaponID() or 0
-            local wName = type(weapon.GetWeaponName) == "function" and weapon:GetWeaponName() or ""
-            
-            if (wID >= 1030000 and wID < 1040000) or wName:find("S686") or wName:find("S1897") or wName:find("S12") or wName:find("DBS") or wName:find("M1014") then 
-                isShotgun = true 
+            local wID = 0
+            local wName = ""
+            pcall(function()
+                if type(weapon.GetWeaponID) == "function" then wID = weapon:GetWeaponID() end
+                if type(weapon.GetWeaponName) == "function" then wName = weapon:GetWeaponName() end
+            end)
+
+            if (wID >= 1030000 and wID < 1040000) or wName:find("S686") or wName:find("S1897") or wName:find("S12") or wName:find("DBS") or wName:find("M1014") then
+                isShotgun = true
             end
-            
+
             if wName:find("Kar98") or wName:find("M24") or wName:find("AWM") or wName:find("Mosin") or wName:find("Win94") or wName:find("AMR") or wName:find("SKS") or wName:find("SLR") or wName:find("Mini") or wName:find("Mk14") or wName:find("QBU") or wName:find("Mk12") or wName:find("VSS") then
                 isSniper = true
             end
-            
-            if type(weapon.GetCurrentAmmo) == "function" then
-                currentAmmo = weapon:GetCurrentAmmo()
-            elseif weapon.ShootWeaponComponent and type(weapon.ShootWeaponComponent.GetCurrentAmmo) == "function" then
-                currentAmmo = weapon.ShootWeaponComponent:GetCurrentAmmo()
-            elseif weapon.CurrentAmmo ~= nil then
-                currentAmmo = weapon.CurrentAmmo
-            end
+
+            pcall(function()
+                if type(weapon.GetCurrentAmmo) == "function" then
+                    currentAmmo = weapon:GetCurrentAmmo()
+                elseif weapon.ShootWeaponComponent and type(weapon.ShootWeaponComponent.GetCurrentAmmo) == "function" then
+                    currentAmmo = weapon.ShootWeaponComponent:GetCurrentAmmo()
+                elseif weapon.CurrentAmmo ~= nil then
+                    currentAmmo = weapon.CurrentAmmo
+                end
+            end)
         end
 
         if _G.SUBHAN_BOYState.IsAutoFiring then
@@ -1598,9 +1687,9 @@ _G.AimTouch = function()
         local useVisCheck = false
         local igKnock = false
         local igBot = false
-        
-        local predVal = 0 
-        local recoilCompVal = 0 
+
+        local predVal = 0
+        local recoilCompVal = 0
 
         if isShotgun and _G.SUBHAN_BOYConfig.AimTouchSG then
             cond = _G.SUBHAN_BOYState.CustomTextData.AimTouchSGCond or 1
@@ -1614,7 +1703,7 @@ _G.AimTouch = function()
             useVisCheck = _G.SUBHAN_BOYConfig.AimTouchSGVisCheck
             igKnock = _G.SUBHAN_BOYConfig.AimTouchSGIgKnock
             igBot = _G.SUBHAN_BOYConfig.AimTouchSGIgBot
-            
+
         elseif isADS then
             if isSniper and _G.SUBHAN_BOYConfig.AimTouchScopeSniper then
                 cond = _G.SUBHAN_BOYState.CustomTextData.AimTouchSniperCond or 2
@@ -1647,7 +1736,7 @@ _G.AimTouch = function()
         else
             if not _G.SUBHAN_BOYConfig.AimTouchHipfire then return end
             cond = _G.SUBHAN_BOYState.CustomTextData.AimTouchHipCond or 1
-            if cond == 1 and not isFiring then return end 
+            if cond == 1 and not isFiring then return end
             prioMode = _G.SUBHAN_BOYState.CustomTextData.AimTouchHipPrio or 1
             boneIdx = _G.SUBHAN_BOYState.CustomTextData.AimTouchHipBone or 1
             speedVal = _G.SUBHAN_BOYState.CustomTextData.AimTouchHipSpeed or 50
@@ -1658,148 +1747,135 @@ _G.AimTouch = function()
             igBot = _G.SUBHAN_BOYConfig.AimTouchHipIgBot
         end
 
-        local currentMaxDist = maxDistMeters * 100 
-
+        local currentMaxDist = maxDistMeters * 100
         local enemies = _G.GetEnemyTargetsFromActors(currentMaxDist)
         if not enemies or #enemies == 0 then return end
-        
+
         local FVector2D = import("Vector2D")
         local UGameplayStatics = import("GameplayStatics")
         local KismetMathLibrary = import("KismetMathLibrary")
-        
+        if not FVector2D or not UGameplayStatics or not KismetMathLibrary then return end
+
         local camManager = UGameplayStatics.GetPlayerCameraManager(pc, 0)
         if not slua.isValid(camManager) then return end
-        
+
         local camLoc = camManager:GetCameraLocation()
         if not camLoc then return end
-        
+
         local ui_util = require("client.common.ui_util")
         if not ui_util then return end
-        
+
         local viewportSize = ui_util.GetViewportSize()
         if not viewportSize then return end
-        
+
         local centerX = viewportSize.X * 0.5
         local centerY = viewportSize.Y * 0.5
-        
+
         local FOV_RADIUS = (fovVal / 100.0) * (viewportSize.X / 2.0)
-        
+
         local bestTarget = nil
-        local bestScore = 99999999 
-        
+        local bestScore = 99999999
+
         local selBoneName = "head"
         if boneIdx == 1 then selBoneName = "head"
         elseif boneIdx == 2 then selBoneName = "spine_03"
         elseif boneIdx == 3 then selBoneName = "spine_01"
         elseif boneIdx == 4 then selBoneName = "pelvis" end
 
-        for i, target in ipairs(enemies) do
-            if not slua.isValid(target) then goto continue end
-            
-            pcall(function()
-                if slua.isValid(target.Mesh) then
-                    target.Mesh.MeshComponentUpdateFlag = 0
-                end
-            end)
-            
-            if igKnock and target.HealthStatus == 1 then goto continue end
-            
-            if igBot then
+        -- [FIXED] Removed goto continue - using skip flag pattern
+        for _, target in ipairs(enemies) do
+            local skip = false
+
+            if not slua.isValid(target) then
+                skip = true
+            end
+
+            if not skip then
+                pcall(function()
+                    if slua.isValid(target.Mesh) then
+                        target.Mesh.MeshComponentUpdateFlag = 0
+                    end
+                end)
+            end
+
+            if not skip and igKnock then
+                local hs = target.HealthStatus
+                if hs ~= nil and hs == 1 then skip = true end
+            end
+
+            if not skip and igBot then
                 local tIsBot = false
                 if target.bIsAI == true or target.IsAI == true then tIsBot = true end
                 local pState = target.PlayerState
                 if slua.isValid(pState) and (pState.bIsABot or pState.bIsBot) then tIsBot = true end
-                if tIsBot then goto continue end
+                if tIsBot then skip = true end
             end
-            
-            if useVisCheck then
+
+            if not skip and useVisCheck then
                 local curTime = os.clock()
-                local tId = type(target.GetUniqueID) == "function" and target:GetUniqueID() or tostring(target)
+                local tId = (type(target.GetUniqueID) == "function" and target:GetUniqueID()) or tostring(target)
                 _G.AimTouchVisCache = _G.AimTouchVisCache or {}
-                if not _G.AimTouchVisCache[tId] or (curTime - _G.AimTouchVisCache[tId].time) > 0.2 then
+                local cacheEntry = _G.AimTouchVisCache[tId]
+                if not cacheEntry or (curTime - cacheEntry.time) > 0.2 then
                     local isHidden = true
-                    pcall(function() if pc:LineOfSightTo(target) then isHidden = false end end)
+                    pcall(function()
+                        if type(pc.LineOfSightTo) == "function" and pc:LineOfSightTo(target) then
+                            isHidden = false
+                        end
+                    end)
                     _G.AimTouchVisCache[tId] = { hidden = isHidden, time = curTime }
+                    cacheEntry = _G.AimTouchVisCache[tId]
                 end
-                if _G.AimTouchVisCache[tId].hidden then goto continue end
+                if cacheEntry.hidden then skip = true end
             end
-            
-            local tPos = target:GetBonePos(selBoneName, {X=0, Y=0, Z=0})
-            if not tPos or (tPos.X == 0 and tPos.Y == 0 and tPos.Z == 0) then
-                if type(target.GetSocketLocation) == "function" then
-                    tPos = target:GetSocketLocation(selBoneName)
-                end
-            end
-            if not tPos or (tPos.X == 0 and tPos.Y == 0 and tPos.Z == 0) then
-                if type(target.K2_GetActorLocation) == "function" then
-                    tPos = target:K2_GetActorLocation()
-                    if tPos then
-                        if boneIdx == 1 then tPos.Z = tPos.Z + 70
-                        elseif boneIdx == 2 then tPos.Z = tPos.Z + 40
-                        elseif boneIdx == 3 then tPos.Z = tPos.Z + 20 end
+
+            if not skip then
+                local tPos = SafeGetBonePos(target, selBoneName)
+                if tPos then
+                    local screen = SafeWorldToScreen(pc, tPos, FVector2D)
+                    if screen and screen.X > 0 and screen.Y > 0 then
+                        local dx = screen.X - centerX
+                        local dy = screen.Y - centerY
+                        local distScreen = math.sqrt(dx*dx + dy*dy)
+
+                        if distScreen <= FOV_RADIUS then
+                            local currentScore = distScreen
+                            if prioMode == 2 then
+                                pcall(function() currentScore = player:GetDistanceTo(target) end)
+                            elseif prioMode == 3 then
+                                currentScore = target.Health or 100
+                            elseif prioMode == 4 then
+                                local hp = target.Health or 100
+                                local maxhp = target.HealthMax or 100
+                                if maxhp <= 0 then maxhp = 100 end
+                                currentScore = hp / maxhp
+                            end
+
+                            if currentScore < bestScore then
+                                bestScore = currentScore
+                                bestTarget = target
+                            end
+                        end
                     end
                 end
             end
-            if not tPos or (tPos.X == 0 and tPos.Y == 0 and tPos.Z == 0) then goto continue end
-            
-            local screen = FVector2D()
-            local success = pc:ProjectWorldLocationToScreen(tPos, screen, false)
-            if not success or screen.X <= 0 or screen.Y <= 0 then goto continue end
-            
-            local dx = screen.X - centerX
-            local dy = screen.Y - centerY
-            local distScreen = math.sqrt(dx*dx + dy*dy)
-            
-            if distScreen > FOV_RADIUS then goto continue end
-            
-            local currentScore = distScreen
-            if prioMode == 2 then currentScore = player:GetDistanceTo(target)
-            elseif prioMode == 3 then currentScore = target.Health or 100
-            elseif prioMode == 4 then 
-                local hp = target.Health or 100
-                local maxhp = target.HealthMax or 100
-                if maxhp <= 0 then maxhp = 100 end
-                currentScore = hp / maxhp
-            end
-            
-            if currentScore < bestScore then
-                bestScore = currentScore
-                bestTarget = target
-            end
-            
-            ::continue::
         end
-        
+
         if not slua.isValid(bestTarget) then return end
-        
-        local finalBonePos = bestTarget:GetBonePos(selBoneName, {X=0, Y=0, Z=0})
-        if not finalBonePos or (finalBonePos.X == 0 and finalBonePos.Y == 0 and finalBonePos.Z == 0) then
-            if type(bestTarget.GetSocketLocation) == "function" then
-                finalBonePos = bestTarget:GetSocketLocation(selBoneName)
-            end
-        end
-        if not finalBonePos or (finalBonePos.X == 0 and finalBonePos.Y == 0 and finalBonePos.Z == 0) then
-            if type(bestTarget.K2_GetActorLocation) == "function" then
-                finalBonePos = bestTarget:K2_GetActorLocation()
-                if finalBonePos then
-                    if boneIdx == 1 then finalBonePos.Z = finalBonePos.Z + 70
-                    elseif boneIdx == 2 then finalBonePos.Z = finalBonePos.Z + 40
-                    elseif boneIdx == 3 then finalBonePos.Z = finalBonePos.Z + 20 end
-                end
-            end
-        end
-        if not finalBonePos or (finalBonePos.X == 0 and finalBonePos.Y == 0 and finalBonePos.Z == 0) then return end
-        
+
+        local finalBonePos = SafeGetBonePos(bestTarget, selBoneName)
+        if not finalBonePos then return end
+
+        -- Movement prediction
         if predVal > 0 then
             pcall(function()
                 local tVelocity = nil
                 if type(bestTarget.GetVelocity) == "function" then
                     tVelocity = bestTarget:GetVelocity()
                 end
-                
                 if tVelocity and (tVelocity.X ~= 0 or tVelocity.Y ~= 0) then
                     local distToEnemy = player:GetDistanceTo(bestTarget) / 100.0
-                    local ToF = (distToEnemy / 800.0) * (predVal / 50.0) 
+                    local ToF = (distToEnemy / 800.0) * (predVal / 50.0)
                     finalBonePos.X = finalBonePos.X + (tVelocity.X * ToF)
                     finalBonePos.Y = finalBonePos.Y + (tVelocity.Y * ToF)
                 end
@@ -1808,18 +1884,20 @@ _G.AimTouch = function()
 
         local rot = KismetMathLibrary.FindLookAtRotation(camLoc, finalBonePos)
         if not rot then return end
-        
+
         local currentRot = pc:GetControlRotation()
         if not currentRot then return end
-        
+
         local deltaYaw = rot.Yaw - currentRot.Yaw
         local deltaPitch = rot.Pitch - currentRot.Pitch
-        
+
         if isADS then
             local camRot = nil
-            if type(camManager.GetCameraRotation) == "function" then
-                camRot = camManager:GetCameraRotation()
-            end
+            pcall(function()
+                if type(camManager.GetCameraRotation) == "function" then
+                    camRot = camManager:GetCameraRotation()
+                end
+            end)
             if camRot then
                 deltaYaw = deltaYaw - (camRot.Yaw - currentRot.Yaw)
                 deltaPitch = deltaPitch - (camRot.Pitch - currentRot.Pitch)
@@ -1830,7 +1908,7 @@ _G.AimTouch = function()
         if deltaYaw < -180 then deltaYaw = deltaYaw + 360 end
         if deltaPitch > 180 then deltaPitch = deltaPitch - 360 end
         if deltaPitch < -180 then deltaPitch = deltaPitch + 360 end
-        
+
         local smoothFactor = 0.0
         if speedVal >= 100 then
             smoothFactor = 1.0
@@ -1838,18 +1916,27 @@ _G.AimTouch = function()
             smoothFactor = (speedVal / 100.0) * 0.3
             if smoothFactor < 0.01 then smoothFactor = 0.01 end
         end
-        
+
         local finalPitch = currentRot.Pitch + (deltaPitch * smoothFactor)
         local finalYaw = currentRot.Yaw + (deltaYaw * smoothFactor)
-        
+
         if recoilCompVal > 0 and isFiring then
             local pullDownForce = (recoilCompVal / 50.0) * 1.5
             finalPitch = finalPitch - pullDownForce
         end
 
         local finalRot = { Pitch = finalPitch, Yaw = finalYaw, Roll = 0 }
-        pc:SetControlRotation(finalRot, "AimTouch")
-        
+
+        -- [FIXED] Try with reason string, fallback to no reason
+        local rotApplied = false
+        pcall(function()
+            pc:SetControlRotation(finalRot, "AimTouch")
+            rotApplied = true
+        end)
+        if not rotApplied then
+            pcall(function() pc:SetControlRotation(finalRot) end)
+        end
+
         if isShotgun and _G.SUBHAN_BOYConfig.AimTouchSGAutoFire then
             pcall(function()
                 local distToTarget = player:GetDistanceTo(bestTarget) / 100
@@ -1859,43 +1946,42 @@ _G.AimTouch = function()
                     if slua.isValid(pc) and type(pc.SetIsWeaponFiring) == "function" then pc:SetIsWeaponFiring(true) end
                     local wepMgr = player.WeaponManagerComponent
                     if slua.isValid(wepMgr) then wepMgr.bIsWeaponFiring = true end
-                    
+
                     local currentWep = player:GetCurrentWeapon()
-                    if slua.isValid(currentWep) and type(currentWep.StartFire) == "function" then 
-                        currentWep:StartFire() 
+                    if slua.isValid(currentWep) and type(currentWep.StartFire) == "function" then
+                        currentWep:StartFire()
                     end
                     _G.SUBHAN_BOYState.IsAutoFiring = true
                 end
             end)
         end
-
     end)
 end
 
--- ========================================== 
+-- ==========================================
 -- MAIN LOOP
--- ========================================== 
-local function MainLoop() 
+-- ==========================================
+local function MainLoop()
     if isExpired then return end
 
-    if _G.SUBHAN_BOYState.CustomTextData == nil then 
+    if _G.SUBHAN_BOYState.CustomTextData == nil then
         _G.SUBHAN_BOYState.CustomTextData = {OuterSpeed = 10, InnerSpeed = 10, HRecoil = 0.3, VRecoil = 0.3, MagicHead = 1.0, MagicBody = 1.0, MagicLegs = 1.0, IpadViewFOV = 120, AimTouchHipPrio = 1, AimTouchHipBone = 1, AimTouchHipCond = 1, AimTouchHipSpeed = 50, AimTouchHipFOV = 30, AimTouchHipDist = 250, AimTouchSGPrio = 1, AimTouchSGBone = 2, AimTouchSGCond = 1, AimTouchSGSpeed = 80, AimTouchSGFOV = 40, AimTouchSGDist = 30, AimTouchScopePrio = 1, AimTouchScopeBone = 2, AimTouchScopeCond = 1, AimTouchScopeSpeed = 40, AimTouchScopeFOV = 20, AimTouchScopeDist = 300, AimTouchSniperPrio = 1, AimTouchSniperBone = 1, AimTouchSniperCond = 2, AimTouchSniperSpeed = 30, AimTouchSniperFOV = 20, AimTouchSniperDist = 400}
     end
 
-    local okData, GameplayData = pcall(require, "GameLua.GameCore.Data.GameplayData") 
-    if not okData or not GameplayData then return end 
-    local pc = GameplayData.GetPlayerController() 
+    local okData, GameplayData = pcall(require, "GameLua.GameCore.Data.GameplayData")
+    if not okData or not GameplayData then return end
+    local pc = GameplayData.GetPlayerController()
     local localPlayer = nil
-    if Valid(pc) then localPlayer = pc:GetPlayerCharacterSafety() end 
+    if Valid(pc) then localPlayer = pc:GetPlayerCharacterSafety() end
 
-    if not Valid(localPlayer) then 
+    if not Valid(localPlayer) then
         if _G.SUBHAN_BOYState.TrackedMarks then
             for markId, _ in pairs(_G.SUBHAN_BOYState.TrackedMarks) do
                 SafeRemoveMark(markId)
             end
         end
-        _G.SUBHAN_BOYState.TrackedMarks = {} 
-        
+        _G.SUBHAN_BOYState.TrackedMarks = {}
+
         for key, data in pairs(_G.SUBHAN_BOYState.EnemyMarks) do
             if data and data.MIDs then
                 for meshStr, midTable in pairs(data.MIDs) do
@@ -1904,12 +1990,12 @@ local function MainLoop()
                 data.MIDs = nil
             end
         end
-        
+
         _G.SUBHAN_BOYState.EnemyMarks = {}
         _G.AK_OrigHitboxes = {}
         _G.AK_ModdedPhysAssets = {}
         _G.SUBHAN_BOYState.PrevGraphicsState = {}
-        return 
+        return
     end
 
     local Cached_PPM = nil
@@ -1921,8 +2007,7 @@ local function MainLoop()
     if _G.SUBHAN_BOYConfig.UnlockFPS then InitializeGraphicsUnlock() end
     InitializeNativeESP()
     ShowSUBHAN_BOYVIPMenu()
-    --ShowLexusVIPMenu()
-    
+
     if _G.SUBHAN_BOYConfig.IpadView and _G.SUBHAN_BOYState.CustomTextData then
         pcall(function()
             local targetTPP = _G.SUBHAN_BOYState.CustomTextData.IpadViewFOV or 120
@@ -1940,13 +2025,9 @@ local function MainLoop()
         end)
     end
 
-    -- ========================================== 
-    -- SKIN MOD LOOP COMPLETELY REMOVED
-    -- ========================================== 
-
-    -- ========================================== 
+    -- ==========================================
     -- APPLY CROSSHAIR SIZE
-    -- ========================================== 
+    -- ==========================================
     pcall(function()
         local desiredSize = _G.SUBHAN_BOYConfig.CrosshairSize or 1.0
         if desiredSize < 0.5 then desiredSize = 0.5 end
@@ -1973,24 +2054,24 @@ local function MainLoop()
             local outerRecoilVal = _G.SUBHAN_BOYState.CustomTextData.OuterRecoil or 0
             if outerRecoilVal > 0 then
                 local curTime = os.clock()
-                
+
                 if not _G.RecoilTargetCacheTime or (curTime - _G.RecoilTargetCacheTime) > 0.2 then
                     _G.RecoilTargetCacheTime = curTime
                     _G.HasRecoilTargetCached = false
-                    
+
                     local ui_util = require("client.common.ui_util")
                     if ui_util then
                         local viewportSize = ui_util.GetViewportSize()
                         if viewportSize then
                             local centerX = viewportSize.X * 0.5
                             local centerY = viewportSize.Y * 0.5
-                            local FOV_RADIUS = (6 / 100.0) * (viewportSize.X / 2.0) 
-                            
-                            local enemies = _G.GetEnemyTargetsFromActors(40000) 
+                            local FOV_RADIUS = (6 / 100.0) * (viewportSize.X / 2.0)
+
+                            local enemies = _G.GetEnemyTargetsFromActors(40000)
                             if enemies and #enemies > 0 then
                                 local FVector2D = import("Vector2D")
                                 for _, target in ipairs(enemies) do
-                                    if slua.isValid(target) and target.HealthStatus ~= 1 then 
+                                    if slua.isValid(target) and target.HealthStatus ~= 1 then
                                         local tPos = type(target.K2_GetActorLocation) == "function" and target:K2_GetActorLocation() or nil
                                         if tPos then
                                             local screen = FVector2D()
@@ -1999,7 +2080,7 @@ local function MainLoop()
                                                 local dy = screen.Y - centerY
                                                 if math.sqrt(dx*dx + dy*dy) <= FOV_RADIUS then
                                                     _G.HasRecoilTargetCached = true
-                                                    break 
+                                                    break
                                                 end
                                             end
                                         end
@@ -2046,7 +2127,7 @@ local function MainLoop()
                     PelvisPriority = autoComp.AimAssistConfig and autoComp.AimAssistConfig.PelvisPriority
                 }
             end
-            
+
             if _G.SUBHAN_BOYConfig.AutoHead then
                 autoComp.bOnlyHitHead = true
                 autoComp.HeadBoneName = "Head"
@@ -2088,19 +2169,19 @@ local function MainLoop()
                 gi:ExecuteCMD("grass.DiscardDataOnLoad", "0")
                 _G.SUBHAN_BOYState.PrevGraphicsState.RemoveGrass = false
             end
-            
+
             if _G.SUBHAN_BOYConfig.RemoveFog and not _G.SUBHAN_BOYState.PrevGraphicsState.RemoveFog then
-                gi:ExecuteCMD("r.SkyAtmosphere", "1") 
-                gi:ExecuteCMD("r.Fog", "0")           
-                gi:ExecuteCMD("r.VolumetricFog", "0") 
+                gi:ExecuteCMD("r.SkyAtmosphere", "1")
+                gi:ExecuteCMD("r.Fog", "0")
+                gi:ExecuteCMD("r.VolumetricFog", "0")
                 _G.SUBHAN_BOYState.PrevGraphicsState.RemoveFog = true
             elseif not _G.SUBHAN_BOYConfig.RemoveFog and _G.SUBHAN_BOYState.PrevGraphicsState.RemoveFog then
-                gi:ExecuteCMD("r.SkyAtmosphere", "1") 
-                gi:ExecuteCMD("r.Fog", "1")           
-                gi:ExecuteCMD("r.VolumetricFog", "1") 
+                gi:ExecuteCMD("r.SkyAtmosphere", "1")
+                gi:ExecuteCMD("r.Fog", "1")
+                gi:ExecuteCMD("r.VolumetricFog", "1")
                 _G.SUBHAN_BOYState.PrevGraphicsState.RemoveFog = false
             end
-            
+
             if _G.SUBHAN_BOYConfig.WhiteBody and not _G.SUBHAN_BOYState.PrevGraphicsState.WhiteBody then
                 gi:ExecuteCMD("r.CharacterDiffuseOffset", "2")
                 gi:ExecuteCMD("r.CharacterDiffusePower", "5")
@@ -2112,7 +2193,7 @@ local function MainLoop()
                 gi:ExecuteCMD("r.CharacterMinShadowFactor", "1")
                 _G.SUBHAN_BOYState.PrevGraphicsState.WhiteBody = false
             end
-            
+
             if _G.SUBHAN_BOYConfig.ColorBodyV2 and not _G.SUBHAN_BOYState.PrevGraphicsState.ColorBodyV2 then
                 gi:ExecuteCMD("r.CharacterMinShadowFactor", "4")
                 gi:ExecuteCMD("r.CharacterDiffuseOffset", "200")
@@ -2124,7 +2205,7 @@ local function MainLoop()
                 gi:ExecuteCMD("r.CharacterDiffusePower", "1")
                 _G.SUBHAN_BOYState.PrevGraphicsState.ColorBodyV2 = false
             end
-            
+
             if _G.SUBHAN_BOYConfig.BlackSky and not _G.SUBHAN_BOYState.PrevGraphicsState.BlackSky then
                 gi:ExecuteCMD("r.CylinderMaxDrawHeight", "9999")
                 _G.SUBHAN_BOYState.PrevGraphicsState.BlackSky = true
@@ -2152,8 +2233,8 @@ local function MainLoop()
             local entities = {}
             if Valid(weapon.ShootWeaponEntity_GEN_VARIABLE) then table.insert(entities, weapon.ShootWeaponEntity_GEN_VARIABLE) end
             if Valid(weapon.ShootWeaponEntity) then table.insert(entities, weapon.ShootWeaponEntity) end
-            if Valid(weapon.ShootWeaponComponent) and Valid(weapon.ShootWeaponComponent.ShootWeaponEntityComponent) then 
-                table.insert(entities, weapon.ShootWeaponComponent.ShootWeaponEntityComponent) 
+            if Valid(weapon.ShootWeaponComponent) and Valid(weapon.ShootWeaponComponent.ShootWeaponEntityComponent) then
+                table.insert(entities, weapon.ShootWeaponComponent.ShootWeaponEntityComponent)
             end
 
             for _, entity in ipairs(entities) do
@@ -2174,21 +2255,21 @@ local function MainLoop()
                             AnimationKick = entity.AnimationKick
                         }
                     end
-                    
-                    if _G.SUBHAN_BOYConfig.CustomHRecoil then entity.AccessoriesHRecoilFactor = _G.SUBHAN_BOYState.CustomTextData.HRecoil or 0.3 
+
+                    if _G.SUBHAN_BOYConfig.CustomHRecoil then entity.AccessoriesHRecoilFactor = _G.SUBHAN_BOYState.CustomTextData.HRecoil or 0.3
                     elseif _G.SUBHAN_BOYConfig.LessRecoil then entity.AccessoriesHRecoilFactor = 0.3 end
-                    
+
                     if _G.SUBHAN_BOYConfig.CustomVRecoil then entity.AccessoriesVRecoilFactor = _G.SUBHAN_BOYState.CustomTextData.VRecoil or 0.3
                     elseif _G.SUBHAN_BOYConfig.VerticalRecoil then entity.AccessoriesVRecoilFactor = 0.3 end
-                    
+
                     if _G.SUBHAN_BOYConfig.LessShake then entity.RecoilKickADS = 0.0; entity.RecoilKickADS = 0.0; entity.RecoilKickADS = 0.0 end
-                     entity.GameDeviationAccuracy = 0.5
+                    entity.GameDeviationAccuracy = 0.5
                     if _G.SUBHAN_BOYConfig.Crosshair then entity.GameDeviationFactor = 3.36 end
                     if _G.SUBHAN_BOYConfig.GodMode then entity.BulletFireSpeed = 500000.0; entity.ShootInterval = 0.001; entity.BaseDamage = 60000.0 end
                     if _G.SUBHAN_BOYConfig.CustomMagicBullet then
                         entity.BaseDamage = entity.BaseDamage * (_G.SUBHAN_BOYState.CustomTextData.MagicHead or 1.0)
                     end
-                    
+
                     if entity.AutoAimingConfig then
                         if not entity.OriginalAutoAimCached then
                             entity.OriginalAutoAimCached = {
@@ -2196,11 +2277,11 @@ local function MainLoop()
                                 InnerSpeed = entity.AutoAimingConfig.InnerRange and entity.AutoAimingConfig.InnerRange.Speed
                             }
                         end
-                        
+
                         if _G.SUBHAN_BOYConfig.AutoHead then
                             pcall(function() entity.AutoAimingConfig.Bones = { "Head", "Head", "Head" } end)
                         end
-                        
+
                         if _G.SUBHAN_BOYConfig.CustomAimbot then
                             local speed = _G.SUBHAN_BOYState.CustomTextData.OuterSpeed or 10
                             if entity.AutoAimingConfig.OuterRange then
@@ -2235,7 +2316,7 @@ local function MainLoop()
                             end
                         end
                     end
-                    
+
                     entity.SUBHAN_BOYWeaponModsActive = true
 
                 elseif entity.SUBHAN_BOYWeaponModsActive then
@@ -2269,7 +2350,7 @@ local function MainLoop()
 
     local mHead_Global, mBody_Global, mLegs_Global = 1.0, 1.0, 1.0
     local runInject_Global = false
-    
+
     pcall(function()
         if _G.SUBHAN_BOYConfig.CustomMagicBullet then
             runInject_Global = true
@@ -2303,24 +2384,24 @@ local function MainLoop()
         local allCharacters = {}
         if GameplayData.GetAllPlayerCharacters then allCharacters = GameplayData.GetAllPlayerCharacters()
         elseif GameplayData.GameCharacters then for _, char in pairs(GameplayData.GameCharacters) do table.insert(allCharacters, char) end end
-        
+
         local currentValidKeys = {}
         for _, enemy in pairs(allCharacters) do
             if Valid(enemy) and enemy ~= localPlayer then
                 currentValidKeys[GetSafeEnemyKey(enemy)] = true
             end
         end
-        
+
         for key, data in pairs(_G.SUBHAN_BOYState.EnemyMarks) do
             if not currentValidKeys[key] then
                 SafeRemoveMark(data.radarMark)
                 SafeRemoveMark(data.hpMark)
                 SafeRemoveMark(data.distMark)
-                
+
                 if _G.AimTouchVisCache and _G.AimTouchVisCache[key] then
                     _G.AimTouchVisCache[key] = nil
                 end
-                
+
                 if data.MIDs then
                     for meshStr, midTable in pairs(data.MIDs) do
                         for k, _ in pairs(midTable) do
@@ -2329,7 +2410,7 @@ local function MainLoop()
                     end
                     data.MIDs = nil
                 end
-                
+
                 data.enemy = nil
                 data.CachedMeshes = nil
                 _G.SUBHAN_BOYState.EnemyMarks[key] = nil
@@ -2351,11 +2432,11 @@ local function MainLoop()
         local BoneScaleMap = {
             ["head"] = mHead_Global, ["neck_01"] = mHead_Global,
             ["pelvis"] = mBody_Global, ["spine_01"] = mBody_Global, ["spine_02"] = mBody_Global, ["spine_03"] = mBody_Global,
-            ["thigh_l"] = mLegs_Global, ["thigh_r"] = mLegs_Global, 
-            ["calf_l"] = mLegs_Global, ["calf_r"] = mLegs_Global,   
-            ["foot_l"] = mLegs_Global, ["foot_r"] = mLegs_Global    
+            ["thigh_l"] = mLegs_Global, ["thigh_r"] = mLegs_Global,
+            ["calf_l"] = mLegs_Global, ["calf_r"] = mLegs_Global,
+            ["foot_l"] = mLegs_Global, ["foot_r"] = mLegs_Global
         }
-        
+
         local mLoc = nil
         pcall(function() if type(localPlayer.K2_GetActorLocation) == "function" then mLoc = localPlayer:K2_GetActorLocation() end end)
 
@@ -2372,7 +2453,7 @@ local function MainLoop()
                 local eKey = GetSafeEnemyKey(enemy)
                 _G.SUBHAN_BOYState.EnemyMarks[eKey] = _G.SUBHAN_BOYState.EnemyMarks[eKey] or { enemy = enemy }
                 local markData = _G.SUBHAN_BOYState.EnemyMarks[eKey]
-                markData.enemy = enemy 
+                markData.enemy = enemy
 
                 if not bIsReallyDead then
                     if markData.lastEnemyActor ~= enemy then
@@ -2380,17 +2461,17 @@ local function MainLoop()
                         if markData.hpMark8 then SafeRemoveMark(markData.hpMark8); markData.hpMark8 = nil end
                         if markData.distMark then SafeRemoveMark(markData.distMark); markData.distMark = nil end
                         if markData.radarMark then SafeRemoveMark(markData.radarMark); markData.radarMark = nil end
-                        
+
                         markData.lastEnemyActor = enemy
                         markData.LastUIComp = nil
                         markData.LastFrameUIState = nil
                     end
-                    
+
                     local eMesh = nil
                     pcall(function() eMesh = enemy.Mesh or (type(enemy.getAvatarComponent2) == "function" and enemy:getAvatarComponent2() or nil) end)
                     local aLoc = nil
                     pcall(function() if type(enemy.K2_GetActorLocation) == "function" then aLoc = enemy:K2_GetActorLocation() end end)
-                    
+
                     local isBotResult, isStateLoaded = CheckIsAI(enemy, markData)
                     local isBot = markData.AK_IS_BOT or false
 
@@ -2411,8 +2492,8 @@ local function MainLoop()
                         Undowallhackng(enemy, markData)
                     end
 
-                    if _G.SUBHAN_BOYConfig.ColorBodyV2 then 
-                        ApplyColorBodyV2(enemy, pc, markData) 
+                    if _G.SUBHAN_BOYConfig.ColorBodyV2 then
+                        ApplyColorBodyV2(enemy, pc, markData)
                     else
                         UndoColorBodyV2(enemy, markData)
                     end
@@ -2421,9 +2502,9 @@ local function MainLoop()
                         local EnemyMesh = eMesh
                         if slua.isValid(EnemyMesh) then
                             local uniqueID = type(enemy.GetUniqueID) == "function" and enemy:GetUniqueID() or tostring(enemy.PlayerKey or enemy)
-                            
+
                             if markData.MagicBulletHash == _G.SUBHAN_BOYState.LastMagicConfigHash and markData.MagicTargetID == uniqueID then
-                                return 
+                                return
                             end
 
                             local PhysicsAsset = EnemyMesh.PhysicsAssetOverride
@@ -2433,9 +2514,9 @@ local function MainLoop()
                                 if not _G.AK_ModdedPhysAssets then _G.AK_ModdedPhysAssets = {} end
                                 local PhysAssetName = "DefaultPhys"
                                 pcall(function() PhysAssetName = PhysicsAsset:GetName() end)
-                                
+
                                 if _G.AK_ModdedPhysAssets[PhysAssetName] ~= _G.SUBHAN_BOYState.LastMagicConfigHash then
-                                    
+
                                     if not _G.AK_OrigHitboxes then _G.AK_OrigHitboxes = {} end
                                     if not _G.AK_OrigHitboxes[PhysAssetName] then _G.AK_OrigHitboxes[PhysAssetName] = {} end
                                     local OrigHitboxData = _G.AK_OrigHitboxes[PhysAssetName]
@@ -2444,7 +2525,7 @@ local function MainLoop()
                                     local numSetups = type(SkeletalBodySetups.Num) == "function" and SkeletalBodySetups:Num() or #SkeletalBodySetups
                                     local limit = numSetups > 50 and 50 or numSetups
 
-                                    for i = 1, limit do 
+                                    for i = 1, limit do
                                         local BodySetup = type(SkeletalBodySetups.Get) == "function" and SkeletalBodySetups:Get(i-1) or SkeletalBodySetups[i]
                                         if slua.isValid(BodySetup) then
                                             local LowerBoneName = string.lower(tostring(BodySetup.BoneName))
@@ -2454,11 +2535,11 @@ local function MainLoop()
                                             end
 
                                             if MatchedBoneKey then
-                                                local TargetScale = 1.0 
+                                                local TargetScale = 1.0
                                                 if runInject_Global then TargetScale = BoneScaleMap[MatchedBoneKey] end
-                                                
+
                                                 local AggGeom = BodySetup.AggGeom
-                                                
+
                                                 local BoxElems = AggGeom and AggGeom.BoxElems or BodySetup.BoxElems
                                                 local SphereElems = AggGeom and AggGeom.SphereElems or BodySetup.SphereElems
                                                 local SphylElems = AggGeom and AggGeom.SphylElems or BodySetup.SphylElems
@@ -2501,10 +2582,10 @@ local function MainLoop()
                                     end
                                     _G.AK_ModdedPhysAssets[PhysAssetName] = _G.SUBHAN_BOYState.LastMagicConfigHash
                                 end
-                                
+
                                 if EnemyMesh.SetPhysicsAsset then EnemyMesh:SetPhysicsAsset(PhysicsAsset) end
                                 EnemyMesh.PhysicsAssetOverride = PhysicsAsset
-                                
+
                                 markData.MagicBulletHash = _G.SUBHAN_BOYState.LastMagicConfigHash
                                 markData.MagicTargetID = uniqueID
                             end
@@ -2516,7 +2597,7 @@ local function MainLoop()
 
                     local currentHp, maxHp = 100, 100
                     local showFrameUI = _G.SUBHAN_BOYConfig.Esp5 or _G.SUBHAN_BOYConfig.EspVipPro or _G.SUBHAN_BOYConfig.EspVip
-                    
+
                     if showFrameUI then
                         pcall(function()
                             if enemy.Health then currentHp = enemy.Health elseif type(enemy.GetHealth) == "function" then currentHp = enemy:GetHealth() end
@@ -2530,9 +2611,9 @@ local function MainLoop()
                         pcall(function()
                             local MyHUD = Cached_MyHUD
                             if Valid(MyHUD) and distM <= 400 then
-                                local loopCount = 8  
-                                local zStep = 300     
-                                local baseZ = 105     
+                                local loopCount = 8
+                                local zStep = 300
+                                local baseZ = 105
                                 local topZ = baseZ + (loopCount * zStep)
                                 for i = 1, loopCount do
                                     local zOffset = baseZ + (i * zStep)
@@ -2549,7 +2630,6 @@ local function MainLoop()
 
                     -- ============================================================
                     -- ENHANCED SKELETON ESP (Esp6) - FULL BONES + CONNECTIONS
-                    -- FIXED: Duration = 0.5 (no blinking)
                     -- ============================================================
                     if _G.SUBHAN_BOYConfig.Esp6 then
                         pcall(function()
@@ -2557,16 +2637,14 @@ local function MainLoop()
                             if not Valid(MyHUD) then return end
                             if not Valid(eMesh) then return end
                             if not aLoc then return end
-                            
-                            -- Distance-based detail
+
                             local distMeters = distM / 100
                             local drawFull = distMeters <= 50
                             local drawPartial = distMeters <= 120
-                            
-                            -- Cache bone locations per frame per enemy
+
                             local boneLocs = {}
                             local anyBoneFound = false
-                            
+
                             for _, bName in ipairs(SKELETON_BONE_LIST) do
                                 local shouldDraw = false
                                 if drawFull then
@@ -2576,7 +2654,7 @@ local function MainLoop()
                                         shouldDraw = true
                                     end
                                 end
-                                
+
                                 if shouldDraw then
                                     local wLoc = nil
                                     if type(eMesh.GetSocketLocation) == "function" then
@@ -2593,15 +2671,14 @@ local function MainLoop()
                                     end
                                 end
                             end
-                            
+
                             if not anyBoneFound then return end
-                            
-                            -- Draw bones with duration 0.5 (NO BLINKING)
+
                             for boneName, offset in pairs(boneLocs) do
                                 local mark = "▪"
                                 local size = 1.2
                                 local color = C_CYAN
-                                
+
                                 if boneName == "head" then
                                     mark = "●"
                                     size = 1.5
@@ -2611,40 +2688,39 @@ local function MainLoop()
                                     size = 1.2
                                     color = C_YELLOW
                                 end
-                                
+
                                 MyHUD:AddDebugText(
-                                    mark, 
-                                    enemy, 
-                                    0.5,  -- DURATION FIXED: 0.5 seconds (no blinking)
-                                    offset, 
-                                    offset, 
-                                    color, 
-                                    true, 
-                                    false, 
-                                    true, 
-                                    nil, 
-                                    size, 
+                                    mark,
+                                    enemy,
+                                    0.5,
+                                    offset,
+                                    offset,
+                                    color,
+                                    true,
+                                    false,
+                                    true,
+                                    nil,
+                                    size,
                                     true
                                 )
                             end
-                            
-                            -- Draw connections with duration 0.5 (NO BLINKING)
+
                             if drawFull then
                                 for _, conn in ipairs(SKELETON_CONNECTIONS) do
                                     local p1 = boneLocs[conn[1]]
                                     local p2 = boneLocs[conn[2]]
                                     if p1 and p2 then
                                         local color = conn[3]
-                                        
+
                                         local dx = p2.X - p1.X
                                         local dy = p2.Y - p1.Y
                                         local dz = p2.Z - p1.Z
                                         local length = math.sqrt(dx*dx + dy*dy + dz*dz)
-                                        
+
                                         local segments = math.floor(length / 12)
                                         if segments > 5 then segments = 5 end
                                         if segments < 2 then segments = 2 end
-                                        
+
                                         for i = 1, segments do
                                             local fraction = i / (segments + 1)
                                             local mid = {
@@ -2653,17 +2729,17 @@ local function MainLoop()
                                                 Z = p1.Z + dz * fraction
                                             }
                                             MyHUD:AddDebugText(
-                                                "•", 
-                                                enemy, 
-                                                0.5,  -- DURATION FIXED: 0.5 seconds (no blinking)
-                                                mid, 
-                                                mid, 
-                                                color, 
-                                                true, 
-                                                false, 
-                                                true, 
-                                                nil, 
-                                                0.8, 
+                                                "•",
+                                                enemy,
+                                                0.5,
+                                                mid,
+                                                mid,
+                                                color,
+                                                true,
+                                                false,
+                                                true,
+                                                nil,
+                                                0.8,
                                                 true
                                             )
                                         end
@@ -2677,7 +2753,7 @@ local function MainLoop()
                         pcall(function()
                             local SecurityCommonUtils = Cached_SecurityCommonUtils
                             local show = true
-                            if enemy.HealthStatus and SecurityCommonUtils and SecurityCommonUtils.IsHealthStatusAlive then 
+                            if enemy.HealthStatus and SecurityCommonUtils and SecurityCommonUtils.IsHealthStatusAlive then
                                 if not SecurityCommonUtils.IsHealthStatusAlive(enemy.HealthStatus) then show = false end
                             end
                             if show and mLoc then
@@ -2691,7 +2767,7 @@ local function MainLoop()
                                 if enemy.Replay_IsEnemyFrameUIExisted and not enemy:Replay_IsEnemyFrameUIExisted() then enemy:Replay_CreateEnemyFrameUI(true, true) end
                                 if enemy.Replay_SetVisiableOfFrameUI then enemy:Replay_SetVisiableOfFrameUI(true) end
                                 if enemy.Replay_UpdateEnemyFrameUI then enemy:Replay_UpdateEnemyFrameUI(hpRatio) end
-                                
+
                                 local uiComp = enemy.EnemyFrameUI or (type(enemy.GetEnemyFrameUI) == "function" and enemy:GetEnemyFrameUI())
                                 if Valid(uiComp) then
                                     if markData.LastFrameUIState ~= "VISIBLE" then
@@ -2704,7 +2780,7 @@ local function MainLoop()
                         end)
                     else
                         pcall(function()
-                            if enemy.Replay_SetVisiableOfFrameUI then enemy:Replay_SetVisiableOfFrameUI(false) end
+                            if enemy.Replay_SetVisiableOfFrameUI then enemy.Replay_SetVisiableOfFrameUI(false) end
                             local uiComp = enemy.EnemyFrameUI or (type(enemy.GetEnemyFrameUI) == "function" and enemy:GetEnemyFrameUI())
                             if Valid(uiComp) then
                                 if markData.LastFrameUIState ~= "HIDDEN" then
@@ -2741,7 +2817,7 @@ local function MainLoop()
 
                             local visibleCol = GetAppliedColor(_G.ColorConfig.VisibleColor or 4, _G.ColorConfig.Brightness)
                             local invisibleCol = GetAppliedColor(_G.ColorConfig.InvisibleColor or 1, _G.ColorConfig.Brightness)
-                            
+
                             local textColor = {R=255, G=255, B=255, A=255}
                             if isKnock then
                                 textColor = {R=0, G=0, B=255, A=255}
@@ -2806,7 +2882,7 @@ local function MainLoop()
 
                                 local visibleCol = GetAppliedColor(_G.ColorConfig.VisibleColor or 4, _G.ColorConfig.Brightness)
                                 local invisibleCol = GetAppliedColor(_G.ColorConfig.InvisibleColor or 1, _G.ColorConfig.Brightness)
-                                
+
                                 local nameColor = {R=255, G=255, B=255, A=255}
                                 if isKnock then
                                     nameColor = {R=0, G=0, B=255, A=255}
@@ -2849,10 +2925,10 @@ local function MainLoop()
                     else
                         if markData.hpMark8 then SafeRemoveMark(markData.hpMark8); markData.hpMark8 = nil end
                     end
-                    
+
                     if _G.SUBHAN_BOYConfig.EspRadar then
-                        if not markData.radarMark or markData.radarMark == 0 then 
-                            markData.radarMark = SafeAddMark(8888, FVector(0,0,0), 0, "", 4, enemy) 
+                        if not markData.radarMark or markData.radarMark == 0 then
+                            markData.radarMark = SafeAddMark(8888, FVector(0,0,0), 0, "", 4, enemy)
                         end
                     else
                         if markData.radarMark and markData.radarMark ~= 0 then
@@ -2860,7 +2936,7 @@ local function MainLoop()
                             markData.radarMark = nil
                         end
                     end
-                    
+
                     if _G.SUBHAN_BOYConfig.EspOutline then
                         pcall(function()
                             local outlineHash = tostring(_G.SUBHAN_BOYConfig.OutlineThickness)
@@ -2896,25 +2972,25 @@ local function MainLoop()
                         markData.hpMark8 = nil
                         SafeRemoveMark(markData.distMark)
                         markData.distMark = nil
-                        
+
                         if markData.MIDs then
                             for meshStr, midTable in pairs(markData.MIDs) do
                                 for k, _ in pairs(midTable) do midTable[k] = nil end
                             end
                             markData.MIDs = nil
                         end
-                        
+
                         pcall(function()
                             local eObj = markData.enemy
-                            if Valid(eObj) then 
+                            if Valid(eObj) then
                                 if eObj.Replay_SetVisiableOfFrameUI then eObj:Replay_SetVisiableOfFrameUI(false) end
                                 local uiComp = eObj.EnemyFrameUI or (type(eObj.GetEnemyFrameUI) == "function" and eObj:GetEnemyFrameUI())
                                 if Valid(uiComp) then
-                                    if type(uiComp.SetVisibility) == "function" then uiComp:SetVisibility(2) end 
+                                    if type(uiComp.SetVisibility) == "function" then uiComp:SetVisibility(2) end
                                     if type(uiComp.SetHiddenInGame) == "function" then uiComp:SetHiddenInGame(true) end
                                 end
                             end
-                            
+
                             local PPM = Cached_PPM
                             local avatarComp = Valid(eObj) and (type(eObj.getAvatarComponent2) == "function") and eObj:getAvatarComponent2() or nil
                             if Valid(avatarComp) and Valid(PPM) then PPM:EnableAvatarOutline(avatarComp, false) end
@@ -2926,9 +3002,9 @@ local function MainLoop()
             end
         end
 
-        -- ========================================== 
+        -- ==========================================
         -- ESP TYPE 7: ENEMY COUNTER
-        -- ========================================== 
+        -- ==========================================
         if _G.SUBHAN_BOYConfig.Esp7 then
             pcall(function()
                 local MyHUD = Cached_MyHUD
@@ -2941,40 +3017,40 @@ local function MainLoop()
     end)
 end
 
-_G.SUBHAN_BOYState.LoopToken = (_G.SUBHAN_BOYState.LoopToken or 0) + 1 
+_G.SUBHAN_BOYState.LoopToken = (_G.SUBHAN_BOYState.LoopToken or 0) + 1
 local myToken = _G.SUBHAN_BOYState.LoopToken
 
--- ========================================== 
+-- ==========================================
 -- LOOP UTAMA (ESP & FITUR LAIN)
--- ========================================== 
-local function FastTick() 
-    if isExpired then 
+-- ==========================================
+local function FastTick()
+    if isExpired then
         if not _G.SUBHAN_BOYNotifiedExpire then
             Notify("MOD HAS EXPIRED! PLEASE CONTACT ADMIN TO RENEW!\nTelegram @DR_SUBHAN")
             _G.SUBHAN_BOYNotifiedExpire = true
         end
-        return 
+        return
     end
 
     if myToken ~= _G.SUBHAN_BOYState.LoopToken then return end
-    pcall(MainLoop) 
-    local okTicker, ticker = pcall(require, "common.time_ticker") 
-    if okTicker and ticker and ticker.AddTimerOnce then 
-        ticker.AddTimerOnce(0.4, FastTick) 
-    end 
+    pcall(MainLoop)
+    local okTicker, ticker = pcall(require, "common.time_ticker")
+    if okTicker and ticker and ticker.AddTimerOnce then
+        ticker.AddTimerOnce(0.4, FastTick)
+    end
 end
 
--- ========================================== 
+-- ==========================================
 -- LOOP KHUSUS AIMBOT
--- ========================================== 
+-- ==========================================
 local aimbotToken = 0
 local function FastAimbotTick()
-    if isExpired then 
-        return 
+    if isExpired then
+        return
     end
 
-    if aimbotToken ~= _G.SUBHAN_BOYState.AimbotLoopToken then 
-        return 
+    if aimbotToken ~= _G.SUBHAN_BOYState.AimbotLoopToken then
+        return
     end
 
     pcall(function()
@@ -2989,11 +3065,11 @@ local function FastAimbotTick()
     end
 end
 
--- ========================================== 
+-- ==========================================
 -- IGNITE BOTH LOOPS
--- ========================================== 
+-- ==========================================
 if not isExpired then
-    FastTick() 
+    FastTick()
     _G.SUBHAN_BOYState.AimbotLoopToken = (_G.SUBHAN_BOYState.AimbotLoopToken or 0) + 1
     aimbotToken = _G.SUBHAN_BOYState.AimbotLoopToken
     local okTicker, ticker = pcall(require, "common.time_ticker")
@@ -3002,14 +3078,14 @@ if not isExpired then
     end
     Notify("VIP MOD ACTIVATED! Telegram: @DR_SUBHAN")
 else
-    FastTick() 
+    FastTick()
 end
 
 -- ===================================================================================
 -- SYSTEM HOOKS BYPASS
 -- ===================================================================================
 local function InitAllModSystems()
-    if isExpired then return end 
+    if isExpired then return end
 
     pcall(function()
         if _G.StartBypass_VIP_v3 then _G.StartBypass_VIP_v3() end
@@ -3023,8 +3099,8 @@ local function InitAllModSystems()
         local LocalPlayer = GameplayData.GetPlayerCharacter and GameplayData.GetPlayerCharacter()
         if slua.isValid(LocalPlayer) then
             if LocalPlayer.bHasShownDevNotice == nil then
-                LocalPlayer.bHasShownDevNotice = false 
-                LocalPlayer.bHasShownExpiredNotice = false 
+                LocalPlayer.bHasShownDevNotice = false
+                LocalPlayer.bHasShownExpiredNotice = false
                 LocalPlayer.bIsDeadFlag = false
             end
         end
@@ -3032,8 +3108,8 @@ local function InitAllModSystems()
 end
 
 if not isExpired then
-    pcall(function() 
-        require("common.time_ticker").AddTimerOnce(0.5, InitAllModSystems) 
+    pcall(function()
+        require("common.time_ticker").AddTimerOnce(0.5, InitAllModSystems)
     end)
 end
 
@@ -3041,19 +3117,12 @@ end
 -- ================== ULTIMATE ANTI-REPORT & ANTI-BAN ENGINE v7 ================
 -- ==============================================================================
 
--- This comprehensive engine blocks ALL report mechanisms, sends empty packets,
--- bypasses all bans, and ensures 100% protection against opponent reports.
-
 pcall(function()
     print("[ULTIMATE ANTI-BAN] Activating complete protection...")
 
-    -- ===================================================================
-    -- 1.0 Master Kill Switch for All Reports
-    -- ===================================================================
     local function MasterReportKill()
-        -- Block all known report functions in global space
         local reportNames = {
-            "ReportAttackFlow", "ReportSecAttackFlow", "ReportFireArms", 
+            "ReportAttackFlow", "ReportSecAttackFlow", "ReportFireArms",
             "ReportVerifyInfoFlow", "ReportMrpcsFlow", "ReportPlayerBehavior",
             "ReportTeammatHurt", "ReportMisKillByTeammate", "ReportForbitPick",
             "ReportPlayerMoveRoute", "ReportPlayerPosition", "ReportVehicleMoveFlow",
@@ -3074,7 +3143,6 @@ pcall(function()
             "client_anti_cheat_report", "HiggsBosonReport", "AvatarExceptionReport",
             "ReportItemID", "SendHisarData", "ServerReportAvatar", "ClientReportNetAvatar",
             "ReportViolation", "ProcessSecurityEvent",
-            -- Additional opponent report vectors
             "ReportPlayerKill", "ReportPlayerDeath", "ReportPlayerRespawn",
             "ReportPlayerSpectate", "ReportPlayerSwitchWeapon", "ReportPlayerPickupItem",
             "ReportPlayerDropItem", "ReportPlayerUseItem", "ReportPlayerReload",
@@ -3086,7 +3154,7 @@ pcall(function()
             "ReportPlayerFPSDrop", "ReportPlayerMemorySpike", "ReportPlayerCheatDetected",
             "ReportPlayerSuspiciousActivity"
         }
-        
+
         for _, name in ipairs(reportNames) do
             if _G[name] then
                 _G[name] = function(...) return nil end
@@ -3095,13 +3163,12 @@ pcall(function()
                 _G.GameplayCallbacks[name] = function(...) return nil end
             end
         end
-        
-        -- Override all subsystem report methods
+
         local subMgr = require("GameLua.GameCore.Module.Subsystem.SubsystemMgr")
         if subMgr then
             local subNames = {
                 "GameReportSubsystem", "ReplaySubsystem", "ClientReportPlayerSubsystem",
-                "DSReportPlayerSubsystem", "ClientHawkEyePatrolSubsystem", 
+                "DSReportPlayerSubsystem", "ClientHawkEyePatrolSubsystem",
                 "DSHawkEyePatrolSubsystem", "ClientDataStatistcsSubsystem",
                 "AFKReportorSubsystem", "BehaviorScoreSubsystem", "FileCheckSubsystem",
                 "MemoryCheckSubsystem", "SpeedCheckSubsystem", "WallCheckSubsystem",
@@ -3114,9 +3181,9 @@ pcall(function()
                 local sub = subMgr:Get(name)
                 if sub then
                     for k, v in pairs(sub) do
-                        if type(v) == "function" and (k:find("Report") or k:find("Send") or 
-                           k:find("Upload") or k:find("Verify") or k:find("Check") or 
-                           k:find("Validate") or k:find("Scan") or k:find("Detect") or 
+                        if type(v) == "function" and (k:find("Report") or k:find("Send") or
+                           k:find("Upload") or k:find("Verify") or k:find("Check") or
+                           k:find("Validate") or k:find("Scan") or k:find("Detect") or
                            k:find("Collect") or k:find("Flow") or k:find("Heartbeat")) then
                             pcall(function() sub[k] = nop end)
                         end
@@ -3129,9 +3196,6 @@ pcall(function()
         end
     end
 
-    -- ===================================================================
-    -- 2.0 Network Packet Interception - Block all report packets
-    -- ===================================================================
     local function BlockReportPackets()
         if NetUtil and NetUtil.SendPacket then
             local orig = NetUtil.SendPacket
@@ -3168,7 +3232,6 @@ pcall(function()
                     ["SignatureVerify"]=1
                 }
                 if blocked[packetName] then
-                    -- Log silently if needed (disabled for safety)
                     return nil
                 end
                 return orig(packetName, ...)
@@ -3176,9 +3239,6 @@ pcall(function()
         end
     end
 
-    -- ===================================================================
-    -- 3.0 TssSdk Full Bypass
-    -- ===================================================================
     local function BypassTssSdk()
         local TssSdk = _G.TssSdk or package.loaded["TssSdk"]
         if TssSdk then
@@ -3191,20 +3251,16 @@ pcall(function()
             TssSdk.CheckEnvironment = retTrue
             TssSdk.VerifyProcess = retTrue
             TssSdk.OnRecvData = function(data)
-                if type(data) == "string" and (data:find("report", 1, true) or 
-                   data:find("exception", 1, true) or data:find("cheat", 1, true) or 
-                   data:find("violation", 1, true) or data:find("hack", 1, true) or 
+                if type(data) == "string" and (data:find("report", 1, true) or
+                   data:find("exception", 1, true) or data:find("cheat", 1, true) or
+                   data:find("violation", 1, true) or data:find("hack", 1, true) or
                    data:find("verify", 1, true)) then
                     return
                 end
-                -- Process only safe data if needed
             end
         end
     end
 
-    -- ===================================================================
-    -- 4.0 CrashSight / Bugly Bypass
-    -- ===================================================================
     local function BypassCrashSight()
         local CrashSight = _G.CrashSight or package.loaded["CrashSight"]
         if CrashSight then
@@ -3222,11 +3278,7 @@ pcall(function()
         end
     end
 
-    -- ===================================================================
-    -- 5.0 Disable All Ban Triggers
-    -- ===================================================================
     local function DisableBanTriggers()
-        -- Override ban-related functions
         local banFuncs = {
             "BanPlayer", "KickPlayer", "DisconnectPlayer", "ReportPlayerBan",
             "CheckPlayerBan", "SetPlayerBan", "GetBanStatus", "IsPlayerBanned",
@@ -3236,8 +3288,7 @@ pcall(function()
         for _, name in ipairs(banFuncs) do
             if _G[name] then _G[name] = nop end
         end
-        
-        -- Override security violation callbacks
+
         local SecuritySub = require("GameLua.Mod.BaseMod.Common.Security.SecurityCommonUtils")
         if SecuritySub then
             if SecuritySub.ReportSecurityViolation then SecuritySub.ReportSecurityViolation = nop end
@@ -3246,11 +3297,7 @@ pcall(function()
         end
     end
 
-    -- ===================================================================
-    -- 6.0 Fake Statistics Generation (to mislead anti-cheat)
-    -- ===================================================================
     local function GenerateFakeStats()
-        -- Override stat reporters
         local statFuncs = {
             "ReportStats", "SendStats", "UploadStats", "RecordStat",
             "AddStat", "IncrementStat", "DecrementStat", "SetStat",
@@ -3259,8 +3306,7 @@ pcall(function()
         for _, name in ipairs(statFuncs) do
             if _G[name] then _G[name] = nop end
         end
-        
-        -- Hook into stat collections to return fake plausible data
+
         local statCollector = require("GameLua.GameCore.Module.StatCollector")
         if statCollector then
             statCollector.Report = nop
@@ -3269,9 +3315,6 @@ pcall(function()
         end
     end
 
-    -- ===================================================================
-    -- 7.0 Persistent Anti-Report Loop
-    -- ===================================================================
     local function PersistentProtectionLoop()
         MasterReportKill()
         BlockReportPackets()
@@ -3279,32 +3322,26 @@ pcall(function()
         BypassCrashSight()
         DisableBanTriggers()
         GenerateFakeStats()
-        
-        -- Reapply every 2 seconds to prevent any bypass attempts
+
         local okTicker, ticker = pcall(require, "common.time_ticker")
         if okTicker and ticker and ticker.AddTimerOnce then
             ticker.AddTimerOnce(2.0, PersistentProtectionLoop)
         end
     end
 
-    -- ===================================================================
-    -- 8.0 Execute All Protections Immediately
-    -- ===================================================================
     MasterReportKill()
     BlockReportPackets()
     BypassTssSdk()
     BypassCrashSight()
     DisableBanTriggers()
     GenerateFakeStats()
-    
-    -- Start persistent loop
+
     local okTicker, ticker = pcall(require, "common.time_ticker")
     if okTicker and ticker and ticker.AddTimerOnce then
         ticker.AddTimerOnce(0.5, PersistentProtectionLoop)
     end
-    
+
     print("[ULTIMATE ANTI-BAN] All protections active. You are 100% undetectable.")
 end)
--- ==============================================================================
--- ================== THE RETURN SECTION RETAINS THE ORIGINAL CODE ===================
--- ==============================================================================
+-- ============================ START FULL LOGIC MOD ==========================
+-- ============================================================================
