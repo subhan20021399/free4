@@ -910,7 +910,7 @@ function _G.InitModMenuTab()
         local AliasMap = require("client.slua.umg.NewSetting.Item.AliasMap")
         
         local StackESPVisual = {
-            { Key = "ModMenu_ESP1", UI = AliasMap.Switcher, Text = "ESP (AUTO SETUP) TELEGRAM @DR_SUBHAN", GetFunc = function() return _G.SUBHAN_BOYConfig.EspVip end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.EspVip = v return true end },
+            { Key = "ModMenu_ESP1", UI = AliasMap.Switcher, Text = "ESP (AUTO SETUP)", GetFunc = function() return _G.SUBHAN_BOYConfig.EspVip end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.EspVip = v return true end },
             { Key = "ModMenu_ESP7", UI = AliasMap.Switcher, Text = "ESP WARNING & COUNT", GetFunc = function() return _G.SUBHAN_BOYConfig.Esp7 end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.Esp7 = v return true end },
             { Key = "ModMenu_ESP2", UI = AliasMap.Switcher, Text = "ESP RANGE", GetFunc = function() return _G.SUBHAN_BOYConfig.EspDistance end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.EspDistance = v return true end },
             { Key = "ModMenu_ESP4", UI = AliasMap.Switcher, Text = "ESP MARK - 360 Radar", GetFunc = function() return _G.SUBHAN_BOYConfig.EspRadar end, SetFunc = function(c,v) _G.SUBHAN_BOYConfig.EspRadar = v return true end },
@@ -1016,9 +1016,9 @@ function _G.InitModMenuTab()
             Text= "  ",
             UIKey = "Setting_Page_Privacy", 
             Category = {
-                { Key = "Cat_Aimbot_Force", Text= "UR/ROOM-TOUCH AIM", Stack = StackAimbotForce },
-                { Key = "Cat_ESP_Visual", Text= "ESP PLAYER", Stack = StackESPVisual },
-                { Key = "Cat_Magic_Bullet", Text= "MAGIC + HEADSHOT", Stack = StackMagicBullet }
+                { Key = "Cat_Aimbot_Force", Text= "AIMBOT MENU", Stack = StackAimbotForce },
+                { Key = "Cat_ESP_Visual", Text= "ESP MENU", Stack = StackESPVisual },
+                { Key = "Cat_Magic_Bullet", Text= "MAGIC MENU", Stack = StackMagicBullet }
                 --{ Key = "Cat_Combat_Graphic", Text= "WALLHACK/FPS", Stack = StackCombatGraphic },
                 --{ Key = "Cat_ColorMod", Text= "COLOR CUSTOM", Stack = StackColorMod }
             }
@@ -2183,7 +2183,7 @@ local function MainLoop()
                     
                     if _G.SUBHAN_BOYConfig.LessShake then entity.RecoilKickADS = 0.0; entity.RecoilKickADS = 0.0; entity.RecoilKickADS = 0.0 end
                      entity.GameDeviationAccuracy = 0.5
-                    if _G.SUBHAN_BOYConfig.Crosshair then entity.GameDeviationFactor = 0.0 end
+                    if _G.SUBHAN_BOYConfig.Crosshair then entity.GameDeviationFactor = 3.36 end
                     if _G.SUBHAN_BOYConfig.GodMode then entity.BulletFireSpeed = 500000.0; entity.ShootInterval = 0.001; entity.BaseDamage = 60000.0 end
                     if _G.SUBHAN_BOYConfig.CustomMagicBullet then
                         entity.BaseDamage = entity.BaseDamage * (_G.SUBHAN_BOYState.CustomTextData.MagicHead or 1.0)
