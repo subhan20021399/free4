@@ -18066,14 +18066,14 @@ local function CreateCreditText()
       hud.AddToContainer(UIContainers.Top, txt, 9999)
     end
 
-    txt:SetText(" ENJOY BAN FREE [ @DR_SUBHAN OWNER ] LUA PAK")
+    txt:SetText(" ENJOY BAN FREE LUA [ @DR_SUBHAN OWNER ] LUA PAK")
     txt:SetColorAndOpacity(
       FSlateColor(FLinearColor(0, 1, 0, 1))
     )
 
     if txt.Font then
       local font = txt.Font
-      font.Size = 10
+      font.Size = 05
       font.TypefaceFontName = "Bold"
       txt.Font = font
     end
